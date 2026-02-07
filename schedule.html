@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View the Treehouse Athletic Club class schedule. 100+ weekly group fitness classes including yoga, HIIT, spin, Zumba, and more. Book online today!">
+  <meta name="keywords" content="gym classes draper, fitness classes sandy, yoga classes utah, spin class draper, group fitness utah">
+  <title>Class Schedule | Treehouse Athletic Club</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header scrolled">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4L6 20V44H18V32H30V44H42V20L24 4Z" fill="#2D5A27"/>
+            <path d="M24 4L14 12V8H10V15L6 20H42L24 4Z" fill="#4A7A44"/>
+            <circle cx="24" cy="24" r="6" fill="#FF6B35"/>
+          </svg>
+          <span class="logo-text" style="color: var(--forest-green);">Treehouse Athletic Club</span>
+        </a>
+        
+        <nav class="nav-desktop">
+          <a href="amenities.html" class="nav-link" style="color: var(--charcoal);">Amenities</a>
+          <a href="memberships.html" class="nav-link" style="color: var(--charcoal);">Memberships</a>
+          <a href="schedule.html" class="nav-link" style="color: var(--charcoal);">Schedule</a>
+          <a href="locations/draper.html" class="nav-link" style="color: var(--charcoal);">Locations</a>
+          <a href="tour.html" class="nav-link" style="color: var(--charcoal);">Tour</a>
+          <a href="memberships.html" class="btn btn-primary nav-cta">Join Now</a>
+        </nav>
+        
+        <button class="mobile-toggle" aria-label="Toggle menu">
+          <span style="background: var(--charcoal);"></span>
+          <span style="background: var(--charcoal);"></span>
+          <span style="background: var(--charcoal);"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu">
+    <a href="amenities.html" class="nav-link">Amenities</a>
+    <a href="memberships.html" class="nav-link">Memberships</a>
+    <a href="schedule.html" class="nav-link">Schedule</a>
+    <a href="locations/draper.html" class="nav-link">Locations</a>
+    <a href="tour.html" class="nav-link">Tour</a>
+    <a href="memberships.html" class="btn btn-primary">Join Now</a>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <span>Class Schedule</span>
+      </nav>
+      <h1>Class Schedule</h1>
+      <p>100+ weekly classes for every fitness level. Book your spot online!</p>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section class="section">
+    <div class="container">
+      <!-- Filters -->
+      <div class="schedule-filters fade-up">
+        <div class="filter-group">
+          <span style="font-weight: 600; margin-right: 12px;">Location:</span>
+          <button class="filter-btn active">All</button>
+          <button class="filter-btn">Draper</button>
+          <button class="filter-btn">Sandy</button>
+        </div>
+        <div class="filter-group">
+          <span style="font-weight: 600; margin-right: 12px;">Class Type:</span>
+          <button class="filter-btn active">All</button>
+          <button class="filter-btn">Cardio</button>
+          <button class="filter-btn">Strength</button>
+          <button class="filter-btn">Yoga</button>
+          <button class="filter-btn">Aqua</button>
+        </div>
+      </div>
+
+      <!-- Schedule Table -->
+      <div class="schedule-table fade-up">
+        <div class="schedule-header">
+          <div>Monday</div>
+          <div>Tuesday</div>
+          <div>Wednesday</div>
+          <div>Thursday</div>
+          <div>Friday</div>
+          <div>Saturday</div>
+          <div>Sunday</div>
+        </div>
+        
+        <!-- 6 AM Row -->
+        <div class="schedule-row">
+          <div class="schedule-cell">
+            <div class="schedule-class cardio">
+              <h5>Morning HIIT</h5>
+              <span>6:00 AM • Sarah M.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class cardio">
+              <h5>Bootcamp</h5>
+              <span>6:00 AM • Jake T.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class cardio">
+              <h5>Spin Class</h5>
+              <span>5:30 AM • Mike R.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class cardio">
+              <h5>Morning HIIT</h5>
+              <span>6:00 AM • Sarah M.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class cardio">
+              <h5>Bootcamp</h5>
+              <span>6:00 AM • Jake T.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>Weekend Warrior</h5>
+              <span>8:00 AM • Jake T.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class yoga">
+              <h5>Sunrise Yoga</h5>
+              <span>9:00 AM • Lisa K.</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 9-10 AM Row -->
+        <div class="schedule-row">
+          <div class="schedule-cell">
+            <div class="schedule-class yoga">
+              <h5>Yoga Flow</h5>
+              <span>9:00 AM • Lisa K.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class yoga">
+              <h5>Pilates</h5>
+              <span>10:00 AM • Emma S.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class yoga">
+              <h5>Power Yoga</h5>
+              <span>9:00 AM • Lisa K.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class yoga">
+              <h5>Barre</h5>
+              <span>10:00 AM • Emma S.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class yoga">
+              <h5>Yoga Flow</h5>
+              <span>9:00 AM • Lisa K.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class yoga">
+              <h5>Family Yoga</h5>
+              <span>10:00 AM • Lisa K.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>Family Swim</h5>
+              <span>10:30 AM • Carol B.</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 12 PM Row -->
+        <div class="schedule-row">
+          <div class="schedule-cell">
+            <div class="schedule-class cardio">
+              <h5>Spin Class</h5>
+              <span>12:00 PM • Mike R.</span>
+            </div>
+          </div>
+          <div class="schedule-cell"></div>
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>TRX Training</h5>
+              <span>12:00 PM • Sarah M.</span>
+            </div>
+          </div>
+          <div class="schedule-cell"></div>
+          <div class="schedule-cell">
+            <div class="schedule-class cardio">
+              <h5>Spin Class</h5>
+              <span>12:00 PM • Mike R.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>Aqua Zumba</h5>
+              <span>12:00 PM • Maria G.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class yoga">
+              <h5>Stretch & Recover</h5>
+              <span>12:00 PM • Emma S.</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 4-5 PM Row -->
+        <div class="schedule-row">
+          <div class="schedule-cell"></div>
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>Aqua Aerobics</h5>
+              <span>4:00 PM • Carol B.</span>
+            </div>
+          </div>
+          <div class="schedule-cell"></div>
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>Swim Lessons</h5>
+              <span>4:30 PM • Carol B.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>Family Fitness</h5>
+              <span>4:00 PM • Sarah M.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>Rock Climbing Intro</h5>
+              <span>2:00 PM • Tom H.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>Basketball Open</h5>
+              <span>2:00 PM • Staff</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 5:30-6 PM Row -->
+        <div class="schedule-row">
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>CrossFit</h5>
+              <span>5:30 PM • Jake T.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class cardio">
+              <h5>Zumba</h5>
+              <span>6:00 PM • Maria G.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>Boxing</h5>
+              <span>5:30 PM • Tony P.</span>
+            </div>
+          </div>
+          <div class="schedule-cell">
+            <div class="schedule-class">
+              <h5>Strength Training</h5>
+              <span>6:00 PM • Jake T.</span>
+            </div>
+          </div>
+          <div class="schedule-cell"></div>
+          <div class="schedule-cell"></div>
+          <div class="schedule-cell"></div>
+        </div>
+      </div>
+      
+      <!-- Legend -->
+      <div style="display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap;" class="fade-up">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 16px; height: 16px; background: rgba(45, 90, 39, 0.2); border-left: 3px solid var(--forest-green); border-radius: 4px;"></div>
+          <span style="font-size: 0.875rem;">Strength/General</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 16px; height: 16px; background: rgba(255, 107, 53, 0.2); border-left: 3px solid var(--orange); border-radius: 4px;"></div>
+          <span style="font-size: 0.875rem;">Cardio</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 16px; height: 16px; background: rgba(139, 90, 43, 0.2); border-left: 3px solid var(--wood); border-radius: 4px;"></div>
+          <span style="font-size: 0.875rem;">Yoga/Mind-Body</span>
+        </div>
+      </div>
+      
+      <!-- Download/App CTA -->
+      <div style="background: var(--forest-green); border-radius: 16px; padding: 40px; margin-top: 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;" class="fade-up">
+        <div style="color: var(--white);">
+          <h3 style="color: var(--white); margin-bottom: 8px;">Book Classes On the Go</h3>
+          <p style="color: rgba(255,255,255,0.8); margin: 0;">Download our app to book classes, reserve courts, and manage your membership.</p>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="#" class="btn btn-primary">Download App</a>
+          <a href="memberships.html" class="btn btn-secondary">Join Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-text">Treehouse Athletic Club</span>
+          <p>Utah's premier family fitness center since 1999. Two locations serving Draper and Sandy communities.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Club</h4>
+          <ul>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="memberships.html">Memberships</a></li>
+            <li><a href="schedule.html">Class Schedule</a></li>
+            <li><a href="tour.html">Schedule Tour</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Locations</h4>
+          <ul>
+            <li><a href="locations/draper.html">Draper</a></li>
+            <li><a href="locations/sandy.html">Sandy</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Wellness</h4>
+          <ul>
+            <li><a href="#">Personal Training</a></li>
+            <li><a href="#">Nutrition Coaching</a></li>
+            <li><a href="https://fallingwatersspa.com" target="_blank">Falling Waters Spa</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="tel:8015530123">(801) 553-0123</a></li>
+            <li><a href="mailto:info@treehousefitness.com">info@treehousefitness.com</a></li>
+            <li><a href="#">Download App</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Treehouse Athletic Club. All rights reserved.</p>
+        <nav>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Accessibility</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
