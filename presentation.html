@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treehouse Athletic Club — Digital Transformation Strategy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --tac-green: #2D5A27;
+    --tac-green-light: #3A7A32;
+    --tac-teal: #1A8A7D;
+    --tac-wood: #8B5A2B;
+    --tac-orange: #FF6B35;
+    --tac-dark: #1A1A1A;
+    --tac-light: #FAFAF8;
+    --tac-white: #FFFFFF;
+    --tac-gray: #6B7280;
+    --tac-red: #DC2626;
+    --slide-w: 960px;
+    --slide-h: 540px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #111;
+    color: var(--tac-dark);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .deck {
+    width: var(--slide-w);
+    height: var(--slide-h);
+    position: relative;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    display: none;
+    flex-direction: column;
+    padding: 48px 56px;
+    background: var(--tac-white);
+  }
+  .slide.active { display: flex; }
+
+  /* Navigation */
+  .nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    z-index: 100;
+    background: rgba(0,0,0,0.7);
+    padding: 8px 16px;
+    border-radius: 24px;
+  }
+  .nav button {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .nav button:hover { background: var(--tac-teal); }
+  .nav .counter {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    min-width: 60px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Slide types */
+  .slide-title {
+    background: linear-gradient(135deg, var(--tac-green) 0%, var(--tac-green-light) 50%, var(--tac-teal) 100%);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .slide-title h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+  .slide-title .subtitle {
+    font-size: 18px;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 600px;
+  }
+  .slide-title .brand-bar {
+    position: absolute;
+    bottom: 32px;
+    font-size: 13px;
+    opacity: 0.7;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .slide-section {
+    background: linear-gradient(135deg, var(--tac-green) 0%, var(--tac-teal) 100%);
+    color: white;
+    justify-content: center;
+    padding-left: 72px;
+  }
+  .slide-section .phase-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 12px;
+  }
+  .slide-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .slide-section .section-desc {
+    font-size: 18px;
+    opacity: 0.85;
+    font-weight: 300;
+    max-width: 550px;
+  }
+
+  /* Content slides */
+  .slide-content { padding: 40px 56px; }
+  .slide-content .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--tac-green);
+  }
+  .slide-content .topbar h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--tac-green);
+  }
+  .slide-content .topbar .tag {
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--tac-green);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Stat cards */
+  .stats-row {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .stat-card {
+    flex: 1;
+    background: #F3F4F6;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+  .stat-card.alert { background: #FEF2F2; border-left: 3px solid var(--tac-red); }
+  .stat-card.success { background: #ECFDF5; border-left: 3px solid #10B981; }
+  .stat-card .stat-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    color: var(--tac-dark);
+    line-height: 1;
+  }
+  .stat-card.alert .stat-num { color: var(--tac-red); }
+  .stat-card .stat-label {
+    font-size: 12px;
+    color: var(--tac-gray);
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  /* Lists */
+  .items-list {
+    list-style: none;
+    margin: 12px 0;
+  }
+  .items-list li {
+    font-size: 15px;
+    padding: 8px 0 8px 24px;
+    position: relative;
+    line-height: 1.5;
+    color: #374151;
+  }
+  .items-list li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--tac-teal);
+  }
+  .items-list li strong { color: var(--tac-dark); }
+
+  /* Two-column */
+  .two-col {
+    display: flex;
+    gap: 32px;
+    flex: 1;
+  }
+  .two-col .col { flex: 1; }
+  .col-header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--tac-teal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #E5E7EB;
+  }
+
+  /* Table */
+  .mini-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 8px 0;
+  }
+  .mini-table th {
+    text-align: left;
+    font-weight: 600;
+    padding: 8px 12px;
+    background: var(--tac-green);
+    color: white;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .mini-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #E5E7EB;
+    color: #374151;
+  }
+  .mini-table tr:nth-child(even) td { background: #F9FAFB; }
+
+  .priority-red { color: var(--tac-red); font-weight: 700; }
+  .priority-orange { color: var(--tac-orange); font-weight: 700; }
+  .priority-green { color: #10B981; font-weight: 700; }
+
+  /* Phase timeline */
+  .timeline {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .timeline-item {
+    flex: 1;
+    background: #F3F4F6;
+    border-radius: 8px;
+    padding: 16px;
+    border-top: 3px solid var(--tac-teal);
+    font-size: 13px;
+  }
+  .timeline-item h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--tac-green);
+  }
+  .timeline-item.active { border-top-color: var(--tac-orange); background: #FFF7ED; }
+  .timeline-item .weeks {
+    font-size: 11px;
+    color: var(--tac-gray);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  /* CTA slide */
+  .slide-cta {
+    background: linear-gradient(135deg, var(--tac-dark) 0%, #2D3748 100%);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .slide-cta h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .slide-cta .cta-items {
+    list-style: none;
+    text-align: left;
+    max-width: 500px;
+  }
+  .slide-cta .cta-items li {
+    padding: 10px 0;
+    font-size: 16px;
+    opacity: 0.9;
+    padding-left: 28px;
+    position: relative;
+  }
+  .slide-cta .cta-items li:before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--tac-orange);
+    font-weight: 700;
+  }
+  .slide-cta .brand-bar {
+    position: absolute;
+    bottom: 32px;
+    font-size: 13px;
+    opacity: 0.5;
+  }
+
+  .footnote {
+    position: absolute;
+    bottom: 16px;
+    right: 56px;
+    font-size: 11px;
+    color: var(--tac-gray);
+  }
+
+  .highlight { color: var(--tac-orange); font-weight: 700; }
+
+  .small-text { font-size: 13px; color: var(--tac-gray); margin-top: 8px; line-height: 1.5; }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge-red { background: #FEE2E2; color: var(--tac-red); }
+  .badge-green { background: #D1FAE5; color: #065F46; }
+  .badge-orange { background: #FFEDD5; color: #C2410C; }
+  .badge-blue { background: #DBEAFE; color: #1E40AF; }
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1: Title -->
+  <div class="slide slide-title active" data-n="1">
+    <h1>Treehouse Athletic Club<br>Digital Transformation</h1>
+    <div class="subtitle">Strategic roadmap for website, AI automation, marketing, and systems modernization</div>
+    <div class="brand-bar">tacfitness.com &nbsp;|&nbsp; GullStack &nbsp;|&nbsp; April 2026</div>
+  </div>
+
+  <!-- SLIDE 2: The Problem -->
+  <div class="slide slide-content" data-n="2">
+    <div class="topbar">
+      <h3>Current Situation</h3>
+      <span class="tag">Urgent</span>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card alert">
+        <div class="stat-num">-30</div>
+        <div class="stat-label">Monthly cancel deficit<br>before new sales count</div>
+      </div>
+      <div class="stat-card alert">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Family memberships<br>sold since January</div>
+      </div>
+      <div class="stat-card alert">
+        <div class="stat-num">0/4</div>
+        <div class="stat-label">Recent tour<br>conversions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">13 yr</div>
+        <div class="stat-label">Since last software<br>conversion (2013)</div>
+      </div>
+    </div>
+    <ul class="items-list">
+      <li><strong>Sales at historic low</strong> — membership decline trend since 2018</li>
+      <li><strong>Invisible online</strong> — "Treehouse? I've never heard of it" / "Where is it?"</li>
+      <li><strong>Can't sell online</strong> — missing an entire generation (Gen Z)</li>
+      <li><strong>Competitors fragmenting market</strong> — Lifetime, Restore, Planet Fitness</li>
+    </ul>
+    <div class="footnote">Source: 2026-04-28 leadership meeting</div>
+  </div>
+
+  <!-- SLIDE 3: Roadmap Overview -->
+  <div class="slide slide-content" data-n="3">
+    <div class="topbar">
+      <h3>4-Phase Roadmap</h3>
+      <span class="tag">Strategy</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item active">
+        <div class="weeks">Weeks 1-4</div>
+        <h4>1. Foundation</h4>
+        Website rebuild, SEO/AEO, online signup, tour scheduling, Google Business
+      </div>
+      <div class="timeline-item">
+        <div class="weeks">Weeks 3-8</div>
+        <h4>2. Automation</h4>
+        AI chatbot, retention engine, anniversary emails, content automation
+      </div>
+      <div class="timeline-item">
+        <div class="weeks">Weeks 5-12</div>
+        <h4>3. Revenue</h4>
+        Meta ads, platform-specific content, B2B outreach, summer pass
+      </div>
+      <div class="timeline-item">
+        <div class="weeks">Weeks 8-16</div>
+        <h4>4. Scale</h4>
+        Software decision, CRM integration, training videos
+      </div>
+    </div>
+    <p class="small-text"><strong>May 2026 = decision month.</strong> Ownership expects directional clarity. This roadmap front-loads the highest-impact, lowest-risk initiatives while deferring the software migration decision until data supports it.</p>
+    <div class="footnote">tacfitness.com</div>
+  </div>
+
+  <!-- SLIDE 4: Phase 1 Section -->
+  <div class="slide slide-section" data-n="4">
+    <div class="phase-num">Phase 1 &mdash; Weeks 1-4</div>
+    <h2>Foundation</h2>
+    <div class="section-desc">Website rebuild, SEO/AEO optimization, online signup, and tour scheduling. Everything downstream depends on getting the digital front door right.</div>
+  </div>
+
+  <!-- SLIDE 5: Website & SEO -->
+  <div class="slide slide-content" data-n="5">
+    <div class="topbar">
+      <h3>Website Rebuild + AEO</h3>
+      <span class="tag">Phase 1</span>
+    </div>
+    <div class="two-col">
+      <div class="col">
+        <div class="col-header">Current Problems</div>
+        <ul class="items-list">
+          <li>Wix site — outdated for a 72,000 sq ft club</li>
+          <li>Not appearing in Google search</li>
+          <li>No online joining or class booking</li>
+          <li>No pricing visible — forces phone calls</li>
+          <li>No tour scheduling widget</li>
+          <li>SEO score: <span class="priority-red">4/10</span></li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-header">What We Build</div>
+        <ul class="items-list">
+          <li><strong>AEO-optimized</strong> — show up in AI answers</li>
+          <li><strong>Online signup flow</strong> — capture Gen Z</li>
+          <li><strong>Tour scheduling</strong> — digital, zero friction</li>
+          <li><strong>Schema markup</strong> — LocalBusiness, FAQ</li>
+          <li><strong>Location pages</strong> — Draper + Sandy</li>
+          <li><strong>Mobile-first</strong> — Vercel edge deployment</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small-text">Reference: Falling Waters Spa (same ownership) went from "F minus" visibility to climbing traffic after similar treatment. Down only $2K vs previously $4K decline.</p>
+    <div class="footnote">tacfitness.com</div>
+  </div>
+
+  <!-- SLIDE 6: Phase 2 Section -->
+  <div class="slide slide-section" data-n="6">
+    <div class="phase-num">Phase 2 &mdash; Weeks 3-8</div>
+    <h2>AI & Automation</h2>
+    <div class="section-desc">Systems that work while humans sleep. After-hours lead capture, member retention automation, and marketing workflows that adapt content per platform.</div>
+  </div>
+
+  <!-- SLIDE 7: AI Chatbot & Retention -->
+  <div class="slide slide-content" data-n="7">
+    <div class="topbar">
+      <h3>AI Chatbot + Retention Engine</h3>
+      <span class="tag">Phase 2</span>
+    </div>
+    <div class="two-col">
+      <div class="col">
+        <div class="col-header">After-Hours AI Bot</div>
+        <ul class="items-list">
+          <li><strong>Midnight lead capture</strong> — "I want to join a gym" gets answered at 2 AM</li>
+          <li><strong>FAQ-trained</strong> — all Treehouse info, pricing, hours, classes</li>
+          <li><strong>Tour booking</strong> — schedules automatically</li>
+          <li><strong>Multi-channel</strong> — website, SMS, social</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-header">Member Retention Engine</div>
+        <ul class="items-list">
+          <li><strong>Check-in analysis</strong> — flag members at 3 mo / 1 yr lapse</li>
+          <li><strong>"We miss you" outreach</strong> — automated, personalized</li>
+          <li><strong>Anniversary emails</strong> — membership milestone triggers</li>
+          <li><strong>Freeze/cancel reporting</strong> — prioritized action list</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small-text">Erica's example: $300 spent on supplements in 6 months from AI-targeted ads alone. Same principle applied to membership retention and lead capture.</p>
+    <div class="footnote">tacfitness.com</div>
+  </div>
+
+  <!-- SLIDE 8: Marketing Automation -->
+  <div class="slide slide-content" data-n="8">
+    <div class="topbar">
+      <h3>Marketing Content Automation</h3>
+      <span class="tag">Phase 2</span>
+    </div>
+    <div class="two-col">
+      <div class="col">
+        <div class="col-header">One Post, Five Platforms</div>
+        <ul class="items-list">
+          <li><strong>Create once</strong> — write one piece of content</li>
+          <li><strong>AI adapts</strong> — tone, length, format per platform</li>
+          <li><strong>Auto-publish</strong> — scheduled across all channels</li>
+          <li><strong>Performance tracking</strong> — which platform converts</li>
+        </ul>
+        <p class="small-text" style="margin-top:16px">No more triplicating the same post. Each platform gets content native to its audience.</p>
+      </div>
+      <div class="col">
+        <div class="col-header">Platform Demographics</div>
+        <table class="mini-table">
+          <tr><th>Platform</th><th>Audience</th><th>Style</th></tr>
+          <tr><td><strong>Facebook</strong></td><td>40+</td><td>Community, families</td></tr>
+          <tr><td><strong>Instagram</strong></td><td>Mid-30s</td><td>Lifestyle, visuals</td></tr>
+          <tr><td><strong>TikTok</strong></td><td>Teens-30s</td><td>Short-form, energy</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="footnote">tacfitness.com</div>
+  </div>
+
+  <!-- SLIDE 9: Phase 3 Section -->
+  <div class="slide slide-section" data-n="9">
+    <div class="phase-num">Phase 3 &mdash; Weeks 5-12</div>
+    <h2>Revenue Growth</h2>
+    <div class="section-desc">Paid acquisition with intent-based Meta ads, corporate B2B outreach, returning member campaigns, and a family summer pass program.</div>
+  </div>
+
+  <!-- SLIDE 10: Meta Ads & Revenue -->
+  <div class="slide slide-content" data-n="10">
+    <div class="topbar">
+      <h3>Paid Acquisition & Revenue Channels</h3>
+      <span class="tag">Phase 3</span>
+    </div>
+    <div class="two-col">
+      <div class="col">
+        <div class="col-header">Meta Ads Strategy</div>
+        <ul class="items-list">
+          <li><strong>Gym-intent targeting</strong> — not just "boost this Reel"</li>
+          <li><strong>Audience segmentation</strong> — families, singles, seniors, wellness</li>
+          <li><strong>Retargeting</strong> — website visitors, tour no-shows</li>
+          <li><strong>A/B creative testing</strong> — data-driven optimization</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-header">Additional Revenue Plays</div>
+        <ul class="items-list">
+          <li><strong>B2B corporate outreach</strong> — "Let your team try Treehouse" guest pass campaigns</li>
+          <li><strong>Returning member win-back</strong> — original "purple" rate offer</li>
+          <li><strong>Family summer pass</strong> — bundle kids' camps, capture summer demand</li>
+          <li><strong>Cross-sell spa</strong> — Falling Waters packages</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footnote">tacfitness.com</div>
+  </div>
+
+  <!-- SLIDE 11: Competitive Landscape -->
+  <div class="slide slide-content" data-n="11">
+    <div class="topbar">
+      <h3>Competitive Gaps</h3>
+      <span class="tag">Market Position</span>
+    </div>
+    <p style="font-size:14px;color:#374151;margin-bottom:16px"><strong>The "Tony Problem":</strong> Recent prospect has memberships at a pickleball place + another gym + Restore Hyper Wellness + Planet Fitness. He's piecemealing wellness because no single gym covers it all.</p>
+    <table class="mini-table">
+      <tr><th>Amenity</th><th>Competitors</th><th>Treehouse Status</th><th>Priority</th></tr>
+      <tr><td>Online membership purchase</td><td>Lifetime, Equinox, OTF</td><td><span class="badge badge-red">Missing</span></td><td class="priority-red">Critical</td></tr>
+      <tr><td>AI-powered booking</td><td>OrangeTheory, Barry's</td><td><span class="badge badge-red">Missing</span></td><td class="priority-red">Critical</td></tr>
+      <tr><td>Cryotherapy</td><td>Restore Hyper Wellness</td><td><span class="badge badge-orange">Missing</span></td><td class="priority-orange">High</td></tr>
+      <tr><td>Red light therapy</td><td>Restore, Lifetime</td><td><span class="badge badge-orange">Missing</span></td><td class="priority-orange">High</td></tr>
+      <tr><td>Pilates reformers</td><td>Various boutiques</td><td><span class="badge badge-blue">Declined prev.</span></td><td class="priority-orange">Revisit</td></tr>
+    </table>
+    <div class="stats-row" style="margin-top:16px">
+      <div class="stat-card success">
+        <div class="stat-num" style="font-size:24px;color:#065F46">Treehouse Has</div>
+        <div class="stat-label">Steam, sauna, infrared, rock wall, basketball, pool, daycare, 72K sq ft, 25+ year legacy</div>
+      </div>
+    </div>
+    <div class="footnote">tacfitness.com</div>
+  </div>
+
+  <!-- SLIDE 12: Phase 4 Section -->
+  <div class="slide slide-section" data-n="12">
+    <div class="phase-num">Phase 4 &mdash; Weeks 8-16</div>
+    <h2>Systems & Scale</h2>
+    <div class="section-desc">Software stack decision (Compete vs Club Automation vs ABC Fitness), CRM integration, and training video production. High-risk, high-reward — defer until data supports it.</div>
+  </div>
+
+  <!-- SLIDE 13: Software Decision -->
+  <div class="slide slide-content" data-n="13">
+    <div class="topbar">
+      <h3>Software Stack Decision</h3>
+      <span class="tag">Phase 4</span>
+    </div>
+    <p style="font-size:14px;color:#374151;margin-bottom:12px">Current stack costs ~$25K-$30K/yr. Last conversion (2013) was traumatic. This decision needs data, not urgency.</p>
+    <table class="mini-table">
+      <tr><th>Option</th><th>Strength</th><th>Weakness</th><th>Fit</th></tr>
+      <tr><td><strong>Stay on Compete</strong></td><td>No migration risk</td><td>Far behind on features</td><td class="priority-red">Poor</td></tr>
+      <tr><td><strong>Club Automation</strong></td><td>Analytics, retention reporting, flags at-risk members</td><td>Less member-facing polish</td><td class="priority-orange">Good</td></tr>
+      <tr><td><strong>ABC Fitness</strong></td><td>Member experience, strong app, member-facing</td><td>Less analytics depth</td><td class="priority-green">Best</td></tr>
+    </table>
+    <div class="two-col" style="margin-top:16px">
+      <div class="col">
+        <div class="col-header">Migration Risks</div>
+        <ul class="items-list">
+          <li>Billing errors hitting members</li>
+          <li>Staff retraining across all departments</li>
+          <li>Data migration from 13-year-old system</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-header">Recommendation</div>
+        <ul class="items-list">
+          <li><strong>Defer</strong> until Phase 1 website is live</li>
+          <li><strong>Survey</strong> members first on pain points</li>
+          <li><strong>Rebecca leads</strong> the conversion this time</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footnote">tacfitness.com</div>
+  </div>
+
+  <!-- SLIDE 14: Sales & Facility -->
+  <div class="slide slide-content" data-n="14">
+    <div class="topbar">
+      <h3>Sales Process + Facility Fixes</h3>
+      <span class="tag">Operations</span>
+    </div>
+    <div class="two-col">
+      <div class="col">
+        <div class="col-header">Tour Protocol (Reinstate)</div>
+        <ul class="items-list">
+          <li><strong>Daycare takes kids on arrival</strong> — kids leave with branded shirt</li>
+          <li><strong>Paint the member's day</strong> — "Yoga at 9, weights, spa, 2.5 hrs"</li>
+          <li><strong>Never say "expensive"</strong> — sell the problem solved</li>
+          <li><strong>Sign-in sheet tracking</strong> — reinstate the protocol</li>
+          <li><strong>Digital follow-up</strong> — automated post-tour sequence</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="col-header">Facility Quick Wins</div>
+        <table class="mini-table">
+          <tr><th>Issue</th><th>Cost</th><th>Impact</th></tr>
+          <tr><td>Carpet replacement</td><td>~$17K</td><td class="priority-red">Members writing "disgusting"</td></tr>
+          <tr><td>Duct tape towel</td><td>Minimal</td><td class="priority-red">Immediate fix</td></tr>
+          <tr><td>Wallpaper peeling</td><td>TBD</td><td class="priority-orange">Tour impression</td></tr>
+        </table>
+        <p class="small-text" style="margin-top:12px">Last two Friday tours — staff was <em>embarrassed</em> by facility aesthetics. These aren't optional.</p>
+      </div>
+    </div>
+    <div class="footnote">tacfitness.com</div>
+  </div>
+
+  <!-- SLIDE 15: Accountability -->
+  <div class="slide slide-content" data-n="15">
+    <div class="topbar">
+      <h3>Accountability Framework</h3>
+      <span class="tag">Process</span>
+    </div>
+    <div class="two-col">
+      <div class="col">
+        <div class="col-header">Automated Friday Updates</div>
+        <ul class="items-list">
+          <li><strong>What was completed</strong> this week</li>
+          <li><strong>What's planned</strong> for next week</li>
+          <li><strong>Blockers</strong> and how to resolve them</li>
+          <li><strong>Key metrics</strong> — sales, tours, check-ins, web traffic</li>
+        </ul>
+        <p class="small-text">Vision (AI) compiles and delivers these automatically. No chasing people for updates.</p>
+      </div>
+      <div class="col">
+        <div class="col-header">Meeting Protocol</div>
+        <ul class="items-list">
+          <li><strong>15-minute standup format</strong> — not open-ended chats</li>
+          <li><strong>Come prepared with deliverables</strong> — not discussion topics</li>
+          <li><strong>Specific assignments</strong> with deadlines</li>
+          <li><strong>"Here's what we did, here's what's next, here's what's blocking us"</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="stats-row" style="margin-top:12px">
+      <div class="stat-card">
+        <div class="stat-num" style="font-size:20px">May 2026</div>
+        <div class="stat-label">Decision month — ownership expects clarity</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="font-size:20px">~May 12</div>
+        <div class="stat-label">Josh in Dallas — in-person meetings</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="font-size:20px">Summer</div>
+        <div class="stat-label">Peak demand — site must answer program queries</div>
+      </div>
+    </div>
+    <div class="footnote">tacfitness.com</div>
+  </div>
+
+  <!-- SLIDE 16: Infrastructure -->
+  <div class="slide slide-content" data-n="16">
+    <div class="topbar">
+      <h3>Project Infrastructure</h3>
+      <span class="tag">Live Now</span>
+    </div>
+    <div class="two-col">
+      <div class="col">
+        <div class="col-header">GitHub Repository</div>
+        <ul class="items-list">
+          <li><strong>Repo:</strong> Gull-Stack/treehouse-athletic-club</li>
+          <li><strong>Site code:</strong> HTML, CSS, JS — demo site live</li>
+          <li><strong>Strategy doc:</strong> STRATEGY.md — full roadmap</li>
+          <li><strong>Assessment:</strong> ASSESSMENT.md — site audit</li>
+        </ul>
+        <p class="small-text" style="margin-top:8px">Auto-deploys on every push to main branch.</p>
+      </div>
+      <div class="col">
+        <div class="col-header">Vercel Deployment</div>
+        <ul class="items-list">
+          <li><strong>Preview:</strong> treehouse-athletic-club.vercel.app</li>
+          <li><strong>Edge CDN:</strong> Global, fast, production-ready</li>
+          <li><strong>CI/CD:</strong> Push to GitHub = live deploy</li>
+        </ul>
+        <div class="col-header" style="margin-top:20px">Team Access</div>
+        <ul class="items-list">
+          <li><strong>@brycedmorgan</strong> — Admin (full edit)</li>
+          <li><strong>@AugmentAdvertise</strong> — Admin</li>
+          <li><strong>@StrongestAvengerStack</strong> — Admin</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footnote">tacfitness.com</div>
+  </div>
+
+  <!-- SLIDE 17: CTA -->
+  <div class="slide slide-cta" data-n="17">
+    <h2>Next Steps</h2>
+    <ul class="cta-items">
+      <li>Website rebuild begins immediately — AEO-first architecture</li>
+      <li>Get member management data export for retention engine</li>
+      <li>Friday accountability cadence starts this week</li>
+      <li>Software decision deferred to post-survey, post-website</li>
+      <li>Meta ads campaign structure ready for launch on approval</li>
+    </ul>
+    <div class="brand-bar">
+      tacfitness.com &nbsp;|&nbsp; Prepared by GullStack &nbsp;|&nbsp; April 2026
+    </div>
+  </div>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+  <button id="prev" onclick="go(-1)">&#8592;</button>
+  <span class="counter" id="counter">1 / 17</span>
+  <button id="next" onclick="go(1)">&#8594;</button>
+</div>
+
+<script>
+  let cur = 0;
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const total = slides.length;
+
+  function show(n) {
+    slides.forEach(s => s.classList.remove('active'));
+    cur = ((n % total) + total) % total;
+    slides[cur].classList.add('active');
+    counter.textContent = (cur + 1) + ' / ' + total;
+  }
+
+  function go(d) { show(cur + d); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    if (e.key === 'Home') { e.preventDefault(); show(0); }
+    if (e.key === 'End') { e.preventDefault(); show(total - 1); }
+  });
+
+  // Touch support
+  let tx = 0;
+  document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+  });
+</script>
+
+</body>
+</html>
