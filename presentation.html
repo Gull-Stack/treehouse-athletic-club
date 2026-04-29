@@ -12,259 +12,116 @@
   --red: #e63946;
   --teal: #00b4d8;
   --orange: #ff6b35;
-  --gold: #d4a373;
   --gray: #6b7280;
   --dim: #161616;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--black);
-  color: var(--white);
-  overflow-x: hidden;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
 
-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: 80px 0;
-}
-.container {
-  max-width: 1000px;
-  width: 90%;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
+section{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:100px 0}
+.container{max-width:1000px;width:90%;margin:0 auto;position:relative;z-index:2}
 
 /* HERO */
-.hero { text-align: center; min-height: 100vh; }
-.hero-pre {
-  font-size: 13px;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: var(--red);
-  font-weight: 600;
-  margin-bottom: 28px;
-  opacity:0; animation: fadeUp 1s .3s forwards;
-}
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: clamp(44px, 7vw, 88px);
-  line-height: 1.05;
-  letter-spacing: -3px;
-  opacity:0; animation: fadeUp 1s .5s forwards;
-}
-.hero h1 em { font-style: normal; color: var(--red); }
-.hero-sub {
-  font-size: clamp(16px, 2vw, 20px);
-  font-weight: 300;
-  color: var(--gray);
-  margin-top: 20px;
-  opacity:0; animation: fadeUp 1s .8s forwards;
-}
-.scroll-cue {
-  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-  font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gray);
-  animation: pulse 2s infinite;
-}
-.scroll-cue::after {
-  content:''; display:block; width:1px; height:36px;
-  background: var(--gray); margin: 10px auto 0;
-  animation: scrollLine 2s infinite;
-}
+.hero{text-align:center;min-height:100vh}
+.hero-pre{font-size:13px;letter-spacing:6px;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:28px;opacity:0;animation:fadeUp 1s .3s forwards}
+.hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(44px,7vw,88px);line-height:1.05;letter-spacing:-3px;opacity:0;animation:fadeUp 1s .5s forwards}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero-sub{font-size:clamp(16px,2vw,20px);font-weight:300;color:var(--gray);margin-top:20px;opacity:0;animation:fadeUp 1s .8s forwards}
+.scroll-cue{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gray);animation:pulse 2s infinite}
+.scroll-cue::after{content:'';display:block;width:1px;height:36px;background:var(--gray);margin:10px auto 0;animation:scrollLine 2s infinite}
 
-/* SECTION HEADERS */
-.sec-label {
-  font-size: 12px; letter-spacing: 6px; text-transform: uppercase;
-  color: var(--teal); font-weight: 600; margin-bottom: 16px;
-}
-.sec-title {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900; font-size: clamp(32px, 5vw, 56px);
-  line-height: 1.1; letter-spacing: -2px; margin-bottom: 40px;
-}
+/* LABELS */
+.sec-label{font-size:12px;letter-spacing:6px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:16px}
+.sec-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(32px,5vw,56px);line-height:1.1;letter-spacing:-2px;margin-bottom:40px}
 
 /* PROBLEM CARDS */
-.problems-section { background: var(--black); padding: 120px 0; }
-.problems-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-}
-.problem-card {
-  background: var(--dim); border: 1px solid rgba(255,255,255,.06);
-  border-radius: 16px; padding: 36px 32px; position: relative;
-  border-left: 3px solid var(--red);
-}
-.problem-card .p-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px; font-weight: 900; color: var(--red);
-  line-height: 1; margin-bottom: 8px; opacity: .3;
-  position: absolute; top: 20px; right: 24px;
-}
-.problem-card h3 {
-  font-size: 17px; font-weight: 600; margin-bottom: 8px; line-height: 1.3;
-}
-.problem-card p {
-  font-size: 14px; color: var(--gray); line-height: 1.6;
-}
+.problems-section{background:var(--black);padding:120px 0}
+.problems-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.problem-card{background:var(--dim);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:36px 32px;border-left:3px solid var(--red);position:relative}
+.problem-card .p-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:var(--red);line-height:1;opacity:.3;position:absolute;top:20px;right:24px}
+.problem-card h3{font-size:17px;font-weight:600;margin-bottom:8px;line-height:1.3}
+.problem-card p{font-size:14px;color:var(--gray);line-height:1.6}
 
 /* PRIORITIES */
-.priorities-section { background: linear-gradient(180deg, var(--black), #0d1b2a); padding: 120px 0; }
-.priority-list { display: flex; flex-direction: column; gap: 0; }
-.priority-item {
-  display: flex; align-items: center; gap: 28px;
-  padding: 28px 0; border-bottom: 1px solid rgba(255,255,255,.06);
-}
-.priority-rank {
-  font-family: 'Playfair Display', serif; font-size: 42px;
-  font-weight: 900; color: var(--teal); min-width: 56px;
-  text-align: center; line-height: 1; opacity: .7;
-}
-.priority-text h3 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
-.priority-text p { font-size: 14px; color: var(--gray); line-height: 1.5; }
+.priorities-section{background:linear-gradient(180deg,var(--black),#0d1b2a);padding:120px 0}
+.priority-list{display:flex;flex-direction:column;gap:0}
+.priority-item{display:flex;align-items:center;gap:28px;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.priority-rank{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:var(--teal);min-width:56px;text-align:center;line-height:1;opacity:.7}
+.priority-text h3{font-size:18px;font-weight:600;margin-bottom:4px}
+.priority-text p{font-size:14px;color:var(--gray);line-height:1.5}
 
 /* STATEMENT */
-.statement { text-align: center; background: var(--black); }
-.statement h2 {
-  font-family: 'Playfair Display', serif; font-weight: 900;
-  font-size: clamp(36px, 6vw, 72px); line-height: 1.1; letter-spacing: -2px;
-}
-.statement h2 em { font-style: normal; color: var(--teal); }
+.statement{text-align:center;background:var(--black)}
+.statement h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,6vw,72px);line-height:1.1;letter-spacing:-2px}
+.statement h2 em{font-style:normal;color:var(--teal)}
+.statement .sub{font-size:18px;color:var(--gray);font-weight:300;margin-top:24px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7}
 
-/* WHAT MANAGEMENT GETS */
-.mgmt-section { background: #0d1b2a; padding: 120px 0; }
-.mgmt-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-}
-.mgmt-card {
-  background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
-  border-radius: 16px; padding: 36px 32px;
-  transition: all .3s;
-}
-.mgmt-card:hover {
-  border-color: var(--teal); transform: translateY(-2px);
-  background: rgba(0,180,216,.04);
-}
-.mgmt-card .mgmt-icon { font-size: 28px; margin-bottom: 16px; }
-.mgmt-card h3 {
-  font-size: 17px; font-weight: 600; margin-bottom: 6px; color: var(--teal);
-}
-.mgmt-card p { font-size: 14px; color: rgba(245,245,240,.65); line-height: 1.6; }
-.mgmt-card .mgmt-agent {
-  margin-top: 14px; font-family: 'JetBrains Mono', monospace;
-  font-size: 12px; color: var(--gray);
-  display: flex; align-items: center; gap: 6px;
-}
-.mgmt-card .mgmt-agent::before {
-  content:''; width: 6px; height: 6px; border-radius: 50%;
-  background: #10b981; animation: blink 2s infinite;
-}
+/* DEPARTMENT SECTIONS */
+.dept-section{padding:120px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.dept-section:nth-child(odd){background:var(--black)}
+.dept-section:nth-child(even){background:#0a0f14}
+.dept-header{display:flex;align-items:center;gap:20px;margin-bottom:40px}
+.dept-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
+.dept-header h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(28px,4vw,40px);line-height:1.15}
+.dept-header .dept-sub{font-size:13px;color:var(--gray);margin-top:4px}
+.dept-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.dept-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:32px 28px}
+.dept-card h3{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--teal)}
+.dept-card p{font-size:14px;color:rgba(245,245,240,.65);line-height:1.6}
+.dept-card .before{font-size:13px;color:var(--red);margin-bottom:12px;font-weight:500}
+.dept-card .after{font-size:13px;color:#10b981;margin-top:12px;font-weight:500}
 
-/* ARCHITECTURE */
-.arch-section { background: linear-gradient(180deg, #0d1b2a, var(--black)); padding: 120px 0; }
-.arch-flow {
-  display: flex; flex-direction: column; gap: 0;
-  max-width: 700px; margin: 0 auto;
-}
-.arch-node {
-  display: flex; align-items: center; gap: 20px;
-  padding: 24px 28px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.06);
-  border-radius: 12px;
-}
-.arch-node + .arch-conn {
-  width: 2px; height: 32px;
-  background: linear-gradient(180deg, var(--teal), rgba(0,180,216,.15));
-  margin: 0 auto;
-}
-.arch-icon {
-  width: 40px; height: 40px; border-radius: 10px;
-  background: rgba(0,180,216,.12);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px; flex-shrink: 0;
-}
-.arch-text h4 {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px; color: var(--teal); margin-bottom: 3px;
-}
-.arch-text p { font-size: 13px; color: var(--gray); line-height: 1.4; }
+/* BOT EXPLAINER */
+.bot-section{background:#0d1b2a;padding:120px 0}
+.bot-diagram{max-width:700px;margin:0 auto}
+.bot-core{text-align:center;margin-bottom:48px}
+.bot-core-label{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--teal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.bot-core-name{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;margin-bottom:8px}
+.bot-core-desc{font-size:15px;color:var(--gray);max-width:500px;margin:0 auto;line-height:1.6}
+.bot-functions{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bot-fn{display:flex;align-items:center;gap:14px;padding:18px 20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px}
+.bot-fn-icon{width:36px;height:36px;border-radius:8px;background:rgba(0,180,216,.1);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.bot-fn-text h4{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--teal);margin-bottom:2px}
+.bot-fn-text p{font-size:12px;color:var(--gray);line-height:1.4}
+.bot-connector{width:2px;height:32px;background:linear-gradient(180deg,var(--teal),rgba(0,180,216,.15));margin:0 auto}
 
-/* WHY IT WORKS */
-.why-section { background: var(--black); padding: 120px 0; }
-.why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
-.why-card {
-  text-align: center; padding: 40px 24px;
-  background: var(--dim); border: 1px solid rgba(255,255,255,.06);
-  border-radius: 16px;
-}
-.why-card .why-icon { font-size: 36px; margin-bottom: 16px; }
-.why-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-.why-card p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+/* WHY */
+.why-section{background:var(--black);padding:120px 0}
+.why-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.why-card{text-align:center;padding:40px 24px;background:var(--dim);border:1px solid rgba(255,255,255,.06);border-radius:16px}
+.why-card .why-icon{font-size:36px;margin-bottom:16px}
+.why-card h3{font-size:16px;font-weight:600;margin-bottom:8px}
+.why-card p{font-size:13px;color:var(--gray);line-height:1.6}
 
 /* CTA */
-.final-cta { text-align: center; min-height: 70vh; background: var(--black); }
-.final-cta h2 {
-  font-family: 'Playfair Display', serif; font-weight: 900;
-  font-size: clamp(36px, 6vw, 72px); line-height: 1.1; letter-spacing: -2px;
-}
-.final-cta h2 em { font-style: normal; color: var(--teal); }
-.final-cta .sub {
-  font-size: 18px; color: var(--gray); font-weight: 300;
-  margin-top: 20px; max-width: 550px; margin-left: auto; margin-right: auto;
-}
-.cta-links {
-  display: flex; gap: 14px; justify-content: center;
-  margin-top: 40px; flex-wrap: wrap;
-}
-.cta-link {
-  display: inline-block; padding: 14px 28px;
-  border: 1px solid rgba(255,255,255,.2); border-radius: 8px;
-  color: var(--white); text-decoration: none; font-size: 13px;
-  font-weight: 500; letter-spacing: 1px; transition: all .3s;
-}
-.cta-link:hover { border-color: var(--teal); background: rgba(0,180,216,.1); }
-.cta-link.primary {
-  background: var(--teal); border-color: var(--teal);
-  color: var(--black); font-weight: 600;
-}
-.cta-link.primary:hover { background: #33c9e8; }
-.footer-note {
-  margin-top: 60px; font-size: 12px; color: var(--gray);
-  letter-spacing: 2px; text-transform: uppercase;
-}
+.final-cta{text-align:center;min-height:70vh;background:var(--black)}
+.final-cta h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,6vw,72px);line-height:1.1;letter-spacing:-2px}
+.final-cta h2 em{font-style:normal;color:var(--teal)}
+.final-cta .sub{font-size:18px;color:var(--gray);font-weight:300;margin-top:20px;max-width:550px;margin-left:auto;margin-right:auto}
+.cta-links{display:flex;gap:14px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+.cta-link{display:inline-block;padding:14px 28px;border:1px solid rgba(255,255,255,.2);border-radius:8px;color:var(--white);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1px;transition:all .3s}
+.cta-link:hover{border-color:var(--teal);background:rgba(0,180,216,.1)}
+.cta-link.primary{background:var(--teal);border-color:var(--teal);color:var(--black);font-weight:600}
+.cta-link.primary:hover{background:#33c9e8}
+.footer-note{margin-top:60px;font-size:12px;color:var(--gray);letter-spacing:2px;text-transform:uppercase}
 
 /* ANIMATIONS */
-.reveal {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-d1 { transition-delay: .1s; }
-.reveal-d2 { transition-delay: .2s; }
-.reveal-d3 { transition-delay: .3s; }
-.reveal-d4 { transition-delay: .4s; }
-.reveal-d5 { transition-delay: .5s; }
-.reveal-d6 { transition-delay: .6s; }
-.reveal-d7 { transition-delay: .7s; }
-.reveal-d8 { transition-delay: .8s; }
-.reveal-d9 { transition-delay: .9s; }
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
+.rd4{transition-delay:.4s}.rd5{transition-delay:.5s}.rd6{transition-delay:.6s}
+.rd7{transition-delay:.7s}.rd8{transition-delay:.8s}.rd9{transition-delay:.9s}
 
-@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-@keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
-@keyframes scrollLine { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-@media (max-width: 768px) {
-  .problems-grid, .mgmt-grid { grid-template-columns: 1fr; }
-  .why-grid { grid-template-columns: 1fr; }
-  section { padding: 60px 0; }
+@media(max-width:768px){
+  .problems-grid,.dept-grid,.bot-functions{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  section{padding:60px 0}
 }
 </style>
 </head>
@@ -275,93 +132,32 @@ section {
   <div class="container">
     <div class="hero-pre">Treehouse Athletic Club</div>
     <h1>We heard <em>everything</em>.</h1>
-    <div class="hero-sub">15 problems. Clear priorities. One AI-powered solution.</div>
+    <div class="hero-sub">15 problems across every department. One AI system to solve them.</div>
   </div>
   <div class="scroll-cue">Scroll</div>
 </section>
 
-<!-- ===== ALL THEIR PROBLEMS ===== -->
+<!-- ===== ALL 15 PROBLEMS ===== -->
 <section class="problems-section">
   <div class="container">
     <div class="sec-label reveal">What you told us</div>
-    <div class="sec-title reveal reveal-d1">Every problem,<br>documented.</div>
-
+    <div class="sec-title reveal rd1">Every problem,<br>documented.</div>
     <div class="problems-grid">
-      <div class="problem-card reveal reveal-d1">
-        <div class="p-num">01</div>
-        <h3>Invisible online</h3>
-        <p>Not appearing in Google. "Treehouse? Never heard of it." Wix site is outdated for a 72K sq ft club.</p>
-      </div>
-      <div class="problem-card reveal reveal-d2">
-        <div class="p-num">02</div>
-        <h3>Can't sell a membership online</h3>
-        <p>Missing an entire generation. Gen Z wants to join at midnight, not call during business hours.</p>
-      </div>
-      <div class="problem-card reveal reveal-d2">
-        <div class="p-num">03</div>
-        <h3>After-hours inquiries go nowhere</h3>
-        <p>No chatbot. No lead capture. A prospect at 2 AM gets silence.</p>
-      </div>
-      <div class="problem-card reveal reveal-d3">
-        <div class="p-num">04</div>
-        <h3>Members cancel without warning</h3>
-        <p>No system flags lapsed members. No "we miss you." Cancellation reason: "dues increase, no perceived value."</p>
-      </div>
-      <div class="problem-card reveal reveal-d3">
-        <div class="p-num">05</div>
-        <h3>Same post on every platform</h3>
-        <p>Triplicating content instead of adapting for Facebook (40+), Instagram (30s), TikTok (teens-30s).</p>
-      </div>
-      <div class="problem-card reveal reveal-d4">
-        <div class="p-num">06</div>
-        <h3>No real ad strategy</h3>
-        <p>Not running Meta ads. When they do, it's boosted posts, not intent-targeted campaigns.</p>
-      </div>
-      <div class="problem-card reveal reveal-d4">
-        <div class="p-num">07</div>
-        <h3>Tours don't convert</h3>
-        <p>4 recent tours, 0 sales. No protocol, no follow-up, staff embarrassed by facility aesthetics.</p>
-      </div>
-      <div class="problem-card reveal reveal-d5">
-        <div class="p-num">08</div>
-        <h3>Sales at historic low</h3>
-        <p>8 family memberships since January. Starting each month at -30 cancels before new sales count.</p>
-      </div>
-      <div class="problem-card reveal reveal-d5">
-        <div class="p-num">09</div>
-        <h3>Competitors fragmenting the market</h3>
-        <p>Tony has 4 gym memberships elsewhere. Lifetime is "not much more." Restore offers cryo and red light.</p>
-      </div>
-      <div class="problem-card reveal reveal-d6">
-        <div class="p-num">10</div>
-        <h3>13-year-old software</h3>
-        <p>Compete is far behind. ~$25-30K/yr. Last migration was traumatic. Considering Club Automation or ABC.</p>
-      </div>
-      <div class="problem-card reveal reveal-d6">
-        <div class="p-num">11</div>
-        <h3>Facility is showing its age</h3>
-        <p>Carpet torn. Towel with duct tape. Wallpaper peeling. Members writing "disgusting" on suggestion forms.</p>
-      </div>
-      <div class="problem-card reveal reveal-d7">
-        <div class="p-num">12</div>
-        <h3>Meetings produce nothing</h3>
-        <p>People show up without deliverables. No deadlines, no accountability, no "what did we accomplish?"</p>
-      </div>
-      <div class="problem-card reveal reveal-d7">
-        <div class="p-num">13</div>
-        <h3>Summer demand with no answer</h3>
-        <p>People keep calling about summer programs. Website doesn't address it. No family pass offering.</p>
-      </div>
-      <div class="problem-card reveal reveal-d8">
-        <div class="p-num">14</div>
-        <h3>Returning member pipeline dried up</h3>
-        <p>Used to drive sales. Now it's gone. No systematic win-back. No outreach.</p>
-      </div>
-      <div class="problem-card reveal reveal-d8">
-        <div class="p-num">15</div>
-        <h3>Pricing blundered</h3>
-        <p>Can't do another increase. Loyalty pricing is the max. Need value perception, not higher numbers.</p>
-      </div>
+      <div class="problem-card reveal rd1"><div class="p-num">01</div><h3>Invisible online</h3><p>"Treehouse? Never heard of it." Not on Google. Wix site outdated.</p></div>
+      <div class="problem-card reveal rd2"><div class="p-num">02</div><h3>Can't sell online</h3><p>No online signup. Missing Gen Z entirely. They join Planet Fitness instead.</p></div>
+      <div class="problem-card reveal rd2"><div class="p-num">03</div><h3>2 AM inquiries die</h3><p>No chatbot. No after-hours lead capture. Prospects get silence.</p></div>
+      <div class="problem-card reveal rd3"><div class="p-num">04</div><h3>Members vanish</h3><p>No flags for lapsed members. No "we miss you." They just cancel.</p></div>
+      <div class="problem-card reveal rd3"><div class="p-num">05</div><h3>Same post everywhere</h3><p>Triplicating content instead of adapting per platform and audience.</p></div>
+      <div class="problem-card reveal rd4"><div class="p-num">06</div><h3>No real ad strategy</h3><p>Boosted posts, not intent-targeted campaigns. No retargeting.</p></div>
+      <div class="problem-card reveal rd4"><div class="p-num">07</div><h3>Tours don't convert</h3><p>4 tours, 0 sales. No protocol, no follow-up, staff embarrassed.</p></div>
+      <div class="problem-card reveal rd5"><div class="p-num">08</div><h3>Historic low sales</h3><p>8 family memberships since January. -30 deficit before sales count.</p></div>
+      <div class="problem-card reveal rd5"><div class="p-num">09</div><h3>Competitors circling</h3><p>Tony has 4 gym memberships. Lifetime is "not much more."</p></div>
+      <div class="problem-card reveal rd6"><div class="p-num">10</div><h3>13-year-old software</h3><p>Compete is far behind. Migration is scary. $25-30K/yr.</p></div>
+      <div class="problem-card reveal rd6"><div class="p-num">11</div><h3>Facility aging</h3><p>Torn carpet. Duct tape towels. Wallpaper peeling. "Disgusting."</p></div>
+      <div class="problem-card reveal rd7"><div class="p-num">12</div><h3>Meetings go nowhere</h3><p>No deliverables, no deadlines, no accountability.</p></div>
+      <div class="problem-card reveal rd7"><div class="p-num">13</div><h3>Summer with no answer</h3><p>People calling about programs. Nothing on the website.</p></div>
+      <div class="problem-card reveal rd8"><div class="p-num">14</div><h3>Returning members gone</h3><p>Used to drive sales. Pipeline dried up. No win-back system.</p></div>
+      <div class="problem-card reveal rd8"><div class="p-num">15</div><h3>Pricing maxed out</h3><p>Can't raise again. Need value perception, not higher numbers.</p></div>
     </div>
   </div>
 </section>
@@ -370,58 +166,15 @@ section {
 <section class="priorities-section">
   <div class="container">
     <div class="sec-label reveal">What matters most</div>
-    <div class="sec-title reveal reveal-d1">Priorities, ranked.</div>
-
+    <div class="sec-title reveal rd1">Priorities, ranked.</div>
     <div class="priority-list">
-      <div class="priority-item reveal">
-        <div class="priority-rank">1</div>
-        <div class="priority-text">
-          <h3>Get found online</h3>
-          <p>New website with AEO optimization. If they can't find you, nothing else matters.</p>
-        </div>
-      </div>
-      <div class="priority-item reveal reveal-d1">
-        <div class="priority-rank">2</div>
-        <div class="priority-text">
-          <h3>Let people join online</h3>
-          <p>Online signup flow. Capture the midnight prospect before Planet Fitness does.</p>
-        </div>
-      </div>
-      <div class="priority-item reveal reveal-d2">
-        <div class="priority-rank">3</div>
-        <div class="priority-text">
-          <h3>Stop the bleed</h3>
-          <p>Retention engine that flags at-risk members and acts before they cancel.</p>
-        </div>
-      </div>
-      <div class="priority-item reveal reveal-d3">
-        <div class="priority-rank">4</div>
-        <div class="priority-text">
-          <h3>Answer every inquiry, 24/7</h3>
-          <p>AI chatbot trained on Treehouse. Books tours. Captures leads. Never sleeps.</p>
-        </div>
-      </div>
-      <div class="priority-item reveal reveal-d4">
-        <div class="priority-rank">5</div>
-        <div class="priority-text">
-          <h3>Run real ads</h3>
-          <p>Intent-targeted Meta campaigns, not boosted posts. Retarget visitors and no-shows.</p>
-        </div>
-      </div>
-      <div class="priority-item reveal reveal-d5">
-        <div class="priority-rank">6</div>
-        <div class="priority-text">
-          <h3>Automate content</h3>
-          <p>One post adapted per platform. Right tone for the right audience. Published on schedule.</p>
-        </div>
-      </div>
-      <div class="priority-item reveal reveal-d6">
-        <div class="priority-rank">7</div>
-        <div class="priority-text">
-          <h3>Enforce accountability</h3>
-          <p>Automated Friday reports. What got done, what's next, what's blocking. No more vibes meetings.</p>
-        </div>
-      </div>
+      <div class="priority-item reveal"><div class="priority-rank">1</div><div class="priority-text"><h3>Get found online</h3><p>If they can't find you, nothing else matters.</p></div></div>
+      <div class="priority-item reveal rd1"><div class="priority-rank">2</div><div class="priority-text"><h3>Let people join online</h3><p>Capture the midnight prospect before someone else does.</p></div></div>
+      <div class="priority-item reveal rd2"><div class="priority-rank">3</div><div class="priority-text"><h3>Stop the member bleed</h3><p>Flag at-risk members and act before they cancel.</p></div></div>
+      <div class="priority-item reveal rd3"><div class="priority-rank">4</div><div class="priority-text"><h3>Answer every inquiry 24/7</h3><p>No prospect should ever get silence.</p></div></div>
+      <div class="priority-item reveal rd4"><div class="priority-rank">5</div><div class="priority-text"><h3>Run real ads</h3><p>Intent-targeted campaigns, not boosted posts.</p></div></div>
+      <div class="priority-item reveal rd5"><div class="priority-rank">6</div><div class="priority-text"><h3>Automate content</h3><p>Right message, right platform, right audience.</p></div></div>
+      <div class="priority-item reveal rd6"><div class="priority-rank">7</div><div class="priority-text"><h3>Enforce accountability</h3><p>Automated reports. What got done. What's next. What's blocked.</p></div></div>
     </div>
   </div>
 </section>
@@ -429,109 +182,206 @@ section {
 <!-- ===== TRANSITION ===== -->
 <section class="statement">
   <div class="container">
-    <h2 class="reveal">One team<br>solves <em>all of it</em>.</h2>
+    <h2 class="reveal">One AI system.<br><em>Every department.</em></h2>
+    <p class="sub reveal rd1">Not six bots. One intelligent system with specialized functions for each department in your business. It plugs into your website, your CRM, your social platforms, and your inbox.</p>
   </div>
 </section>
 
-<!-- ===== WHAT MANAGEMENT GETS ===== -->
-<section class="mgmt-section">
+<!-- ===== DEPT: FRONT DESK & SALES ===== -->
+<section class="dept-section">
   <div class="container">
-    <div class="sec-label reveal">What leadership gets</div>
-    <div class="sec-title reveal reveal-d1">Your dashboard, not more meetings.</div>
-
-    <div class="mgmt-grid">
-      <div class="mgmt-card reveal">
-        <div class="mgmt-icon">&#127760;</div>
-        <h3>Prospects find you first</h3>
-        <p>Your site shows up in Google and AI answers before Lifetime. Schema, location pages, AEO built in.</p>
-        <div class="mgmt-agent">Powered by Scout</div>
+    <div class="dept-header reveal">
+      <div class="dept-icon" style="background:rgba(0,180,216,.12)">&#128075;</div>
+      <div>
+        <h2>Front Desk & Sales</h2>
+        <div class="dept-sub">Tours, inquiries, signups, lead follow-up</div>
       </div>
-      <div class="mgmt-card reveal reveal-d1">
-        <div class="mgmt-icon">&#128337;</div>
-        <h3>Leads captured at 2 AM</h3>
-        <p>A prospect asks about pricing at midnight. Gets an answer in 3 seconds. Tour booked before sunrise.</p>
-        <div class="mgmt-agent">Powered by Concierge</div>
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card reveal">
+        <div class="before">Today: Prospect calls after hours. No answer. Gone.</div>
+        <h3>24/7 inquiry response</h3>
+        <p>The AI answers questions about pricing, hours, classes, and amenities instantly. Any time. Website, text, or social.</p>
+        <div class="after">Result: Every lead gets a response in under 5 seconds.</div>
       </div>
-      <div class="mgmt-card reveal reveal-d2">
-        <div class="mgmt-icon">&#128680;</div>
-        <h3>At-risk members flagged</h3>
-        <p>30 days no check-in? You know. 90 days? Auto-outreach sent. Anniversary? Personalized email.</p>
-        <div class="mgmt-agent">Powered by Sentinel</div>
+      <div class="dept-card reveal rd1">
+        <div class="before">Today: "Call to join." Gen Z doesn't call.</div>
+        <h3>Online signup flow</h3>
+        <p>Prospects join from their phone at midnight. No friction. No phone call. Membership starts immediately.</p>
+        <div class="after">Result: Unblock an entire generation of members.</div>
       </div>
-      <div class="mgmt-card reveal reveal-d3">
-        <div class="mgmt-icon">&#128225;</div>
-        <h3>Content on every platform</h3>
-        <p>Write one post. It goes out adapted for Facebook, Instagram, and TikTok &#8212; right tone, right format.</p>
-        <div class="mgmt-agent">Powered by Amplifier</div>
+      <div class="dept-card reveal rd2">
+        <div class="before">Today: 4 tours, 0 conversions. No follow-up.</div>
+        <h3>Tour booking + post-tour follow-up</h3>
+        <p>AI books tours directly. After the tour, automated follow-up sequence. No leads fall through the cracks.</p>
+        <div class="after">Result: More tours booked, systematic follow-up on every one.</div>
       </div>
-      <div class="mgmt-card reveal reveal-d4">
-        <div class="mgmt-icon">&#127919;</div>
-        <h3>Ads that target intent</h3>
-        <p>Not boosted posts. Real campaigns targeting people searching for gyms, retargeting tour no-shows.</p>
-        <div class="mgmt-agent">Powered by Archer</div>
-      </div>
-      <div class="mgmt-card reveal reveal-d5">
-        <div class="mgmt-icon">&#128202;</div>
-        <h3>Friday report, no chasing</h3>
-        <p>What got done. What's next. What's blocked. Key metrics. Delivered automatically. No meetings required.</p>
-        <div class="mgmt-agent">Powered by Command</div>
+      <div class="dept-card reveal rd3">
+        <div class="before">Today: Returning member pipeline dried up.</div>
+        <h3>Win-back campaigns</h3>
+        <p>AI identifies former members, sends personalized offers at their original rate. Automated, targeted, personal.</p>
+        <div class="after">Result: Reactivate the returning-member pipeline.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== ARCHITECTURE ===== -->
-<section class="arch-section">
+<!-- ===== DEPT: MARKETING ===== -->
+<section class="dept-section">
   <div class="container">
-    <div class="sec-label reveal">How it connects</div>
-    <div class="sec-title reveal reveal-d1">The system.</div>
+    <div class="dept-header reveal">
+      <div class="dept-icon" style="background:rgba(255,107,53,.12)">&#128226;</div>
+      <div>
+        <h2>Marketing</h2>
+        <div class="dept-sub">Website, social media, paid ads, content</div>
+      </div>
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card reveal">
+        <div class="before">Today: Wix site. Not on Google. "Never heard of it."</div>
+        <h3>AEO-optimized website</h3>
+        <p>New site built for AI search engines. Shows up in Google, ChatGPT, and Perplexity answers. Schema markup, location pages, SEO.</p>
+        <div class="after">Result: Prospects find Treehouse before Lifetime.</div>
+      </div>
+      <div class="dept-card reveal rd1">
+        <div class="before">Today: Same post copy-pasted to 3 platforms.</div>
+        <h3>Platform-adapted content</h3>
+        <p>Write one post. AI adapts tone and format for Facebook (40+), Instagram (30s), and TikTok (teens-30s). Published on schedule.</p>
+        <div class="after">Result: Right message for the right audience, every time.</div>
+      </div>
+      <div class="dept-card reveal rd2">
+        <div class="before">Today: Boosted posts. No targeting. No tracking.</div>
+        <h3>Intent-targeted ad campaigns</h3>
+        <p>Meta campaigns targeting people actively searching for gyms. Retargeting website visitors and tour no-shows. Daily optimization.</p>
+        <div class="after">Result: Real ROI on ad spend, not vanity metrics.</div>
+      </div>
+      <div class="dept-card reveal rd3">
+        <div class="before">Today: No summer program info online.</div>
+        <h3>Seasonal campaign automation</h3>
+        <p>Summer family pass. Kids' camp promotions. Holiday specials. AI generates and launches seasonal campaigns on cue.</p>
+        <div class="after">Result: Stop fielding calls. Website answers the demand.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="arch-flow">
-      <div class="arch-node reveal">
-        <div class="arch-icon">&#127760;</div>
-        <div class="arch-text">
-          <h4>Scout &rarr; treehousefitness.com</h4>
-          <p>AEO-optimized site. Online signup. Tour booking. Visible everywhere.</p>
-        </div>
+<!-- ===== DEPT: MEMBER SERVICES ===== -->
+<section class="dept-section">
+  <div class="container">
+    <div class="dept-header reveal">
+      <div class="dept-icon" style="background:rgba(16,185,129,.12)">&#128170;</div>
+      <div>
+        <h2>Member Services & Retention</h2>
+        <div class="dept-sub">Check-ins, engagement, cancellation prevention</div>
       </div>
-      <div class="arch-conn"></div>
-      <div class="arch-node reveal reveal-d1">
-        <div class="arch-icon">&#129302;</div>
-        <div class="arch-text">
-          <h4>Concierge &rarr; Every visitor</h4>
-          <p>Answers. Captures. Books. Hands off warm leads to sales team.</p>
-        </div>
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card reveal">
+        <div class="before">Today: Members stop coming. Nobody notices until they cancel.</div>
+        <h3>At-risk member detection</h3>
+        <p>AI monitors check-in frequency. Flags members at 30, 60, and 90 days of declining activity. Before they decide to leave.</p>
+        <div class="after">Result: Intervene while they still have the membership.</div>
       </div>
-      <div class="arch-conn"></div>
-      <div class="arch-node reveal reveal-d2">
-        <div class="arch-icon">&#128200;</div>
-        <div class="arch-text">
-          <h4>Sentinel &rarr; Member database</h4>
-          <p>Watches check-ins. Flags risk. Triggers outreach. Reports to Command.</p>
-        </div>
+      <div class="dept-card reveal rd1">
+        <div class="before">Today: No milestone recognition. No personal touch.</div>
+        <h3>Anniversary & milestone outreach</h3>
+        <p>Membership anniversary emails. First-month check-in. Yearly celebration. Automated but personal.</p>
+        <div class="after">Result: Members feel seen. Retention goes up.</div>
       </div>
-      <div class="arch-conn"></div>
-      <div class="arch-node reveal reveal-d3">
-        <div class="arch-icon">&#128225;</div>
-        <div class="arch-text">
-          <h4>Amplifier &rarr; 5 platforms</h4>
-          <p>One input. Five outputs. Platform-native content. Scheduled delivery.</p>
-        </div>
+      <div class="dept-card reveal rd2">
+        <div class="before">Today: "Dues increase, no perceived value."</div>
+        <h3>Automated "we miss you" campaigns</h3>
+        <p>Personalized outreach when check-ins drop. Highlight amenities they haven't tried. Remind them what they're paying for.</p>
+        <div class="after">Result: Change the value conversation from price to experience.</div>
       </div>
-      <div class="arch-conn"></div>
-      <div class="arch-node reveal reveal-d4">
-        <div class="arch-icon">&#127919;</div>
-        <div class="arch-text">
-          <h4>Archer &rarr; Meta + retargeting</h4>
-          <p>Intent audiences. Tour no-show retargeting. Daily optimization. Real ROI.</p>
-        </div>
+      <div class="dept-card reveal rd3">
+        <div class="before">Today: Freeze/cancel reports are manual. No prioritization.</div>
+        <h3>Termination & freeze intelligence</h3>
+        <p>AI generates prioritized lists of at-risk accounts with recommended actions. Staff knows exactly who to call and why.</p>
+        <div class="after">Result: Turn reactive cancel processing into proactive saves.</div>
       </div>
-      <div class="arch-conn"></div>
-      <div class="arch-node reveal reveal-d5">
-        <div class="arch-icon">&#128202;</div>
-        <div class="arch-text">
-          <h4>Command &rarr; Leadership inbox</h4>
-          <p>Weekly digest. Metrics. Progress. Blockers. Zero effort from management.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEPT: OPERATIONS & LEADERSHIP ===== -->
+<section class="dept-section">
+  <div class="container">
+    <div class="dept-header reveal">
+      <div class="dept-icon" style="background:rgba(99,102,241,.12)">&#128188;</div>
+      <div>
+        <h2>Operations & Leadership</h2>
+        <div class="dept-sub">Reporting, accountability, decisions</div>
+      </div>
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card reveal">
+        <div class="before">Today: Meetings with no agenda, no deliverables, no outcome.</div>
+        <h3>Automated weekly reports</h3>
+        <p>Every Friday: what got done, what's next, what's blocked, key metrics. Delivered to leadership inbox. No chasing.</p>
+        <div class="after">Result: Accountability without the overhead.</div>
+      </div>
+      <div class="dept-card reveal rd1">
+        <div class="before">Today: Software decision paralysis. 13 years on Compete.</div>
+        <h3>Data-driven software recommendation</h3>
+        <p>Member survey analysis. Feature comparison. Migration risk assessment. Decision framework, not gut feeling.</p>
+        <div class="after">Result: Confidence in the Compete vs. ABC vs. Club Automation decision.</div>
+      </div>
+      <div class="dept-card reveal rd2">
+        <div class="before">Today: No visibility into what's working.</div>
+        <h3>Cross-department dashboard</h3>
+        <p>Sales pipeline. Tour conversion. Retention rates. Ad performance. Content engagement. One view.</p>
+        <div class="after">Result: Make decisions with data, not anecdotes.</div>
+      </div>
+      <div class="dept-card reveal rd3">
+        <div class="before">Today: Falling Waters spa underutilized as asset.</div>
+        <h3>Spa cross-sell automation</h3>
+        <p>Gym members get targeted spa offers. Spa clients get gym trial invites. Automated cross-promotion between properties.</p>
+        <div class="after">Result: Two businesses reinforcing each other.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ONE SYSTEM EXPLAINER ===== -->
+<section class="bot-section">
+  <div class="container">
+    <div class="sec-label reveal" style="text-align:center">How it works</div>
+    <div class="sec-title reveal rd1" style="text-align:center">One system. Multiple functions.</div>
+
+    <div class="bot-diagram">
+      <div class="bot-core reveal">
+        <div class="bot-core-label">The AI System</div>
+        <div class="bot-core-name">Treehouse AI</div>
+        <div class="bot-core-desc">A single intelligent system connected to your website, CRM, social platforms, and ad accounts. It handles different functions across departments &#8212; not separate bots, one brain.</div>
+      </div>
+
+      <div class="bot-connector"></div>
+
+      <div class="bot-functions">
+        <div class="bot-fn reveal">
+          <div class="bot-fn-icon">&#127760;</div>
+          <div class="bot-fn-text"><h4>Website + SEO</h4><p>AEO optimization, schema, discoverability</p></div>
+        </div>
+        <div class="bot-fn reveal rd1">
+          <div class="bot-fn-icon">&#128172;</div>
+          <div class="bot-fn-text"><h4>Chat + Lead Capture</h4><p>24/7 answers, tour booking, signup</p></div>
+        </div>
+        <div class="bot-fn reveal rd2">
+          <div class="bot-fn-icon">&#128200;</div>
+          <div class="bot-fn-text"><h4>Retention Engine</h4><p>Check-in monitoring, at-risk flags, outreach</p></div>
+        </div>
+        <div class="bot-fn reveal rd3">
+          <div class="bot-fn-icon">&#128225;</div>
+          <div class="bot-fn-text"><h4>Content Automation</h4><p>Adapt + publish to FB, IG, TikTok</p></div>
+        </div>
+        <div class="bot-fn reveal rd4">
+          <div class="bot-fn-icon">&#127919;</div>
+          <div class="bot-fn-text"><h4>Ad Management</h4><p>Intent targeting, retargeting, optimization</p></div>
+        </div>
+        <div class="bot-fn reveal rd5">
+          <div class="bot-fn-icon">&#128202;</div>
+          <div class="bot-fn-text"><h4>Reporting</h4><p>Friday reports, dashboards, metrics</p></div>
         </div>
       </div>
     </div>
@@ -541,21 +391,20 @@ section {
 <!-- ===== WHY IT WORKS ===== -->
 <section class="why-section">
   <div class="container">
-    <div class="sec-label reveal">Why this works</div>
-    <div class="sec-title reveal reveal-d1">Three reasons.</div>
-
+    <div class="sec-label reveal" style="text-align:center">Why this works</div>
+    <div class="sec-title reveal rd1" style="text-align:center">Three reasons.</div>
     <div class="why-grid">
       <div class="why-card reveal">
         <div class="why-icon">&#9203;</div>
         <h3>It never stops</h3>
-        <p>AI agents run 24/7. Midnight leads, weekend inquiries, holiday check-ins. No shifts, no sick days, no "I forgot."</p>
+        <p>24/7 lead capture, retention monitoring, and reporting. No shifts, no sick days, no "I forgot."</p>
       </div>
-      <div class="why-card reveal reveal-d1">
+      <div class="why-card reveal rd1">
         <div class="why-icon">&#128176;</div>
-        <h3>It costs less than one employee</h3>
-        <p>Six agents doing the work of a marketing coordinator, retention specialist, content creator, and ad manager. Combined.</p>
+        <h3>It costs less than one hire</h3>
+        <p>One system doing the work of a marketing coordinator, retention specialist, content creator, and ad manager. Combined.</p>
       </div>
-      <div class="why-card reveal reveal-d2">
+      <div class="why-card reveal rd2">
         <div class="why-icon">&#128640;</div>
         <h3>It compounds</h3>
         <p>Every lead captured feeds retargeting. Every check-in trains retention. Every post teaches the algorithm. It gets smarter every week.</p>
@@ -568,21 +417,19 @@ section {
 <section class="final-cta">
   <div class="container">
     <h2 class="reveal">May is <em>decision month</em>.</h2>
-    <p class="sub reveal reveal-d1">The AI team is built. The architecture is ready.<br>23 answers from Treehouse leadership unlock the rest.</p>
-    <div class="cta-links reveal reveal-d2">
+    <p class="sub reveal rd1">The system is designed. The architecture is ready.<br>23 answers from Treehouse leadership unlock the build.</p>
+    <div class="cta-links reveal rd2">
       <a href="https://treehouse-athletic-club.vercel.app" class="cta-link primary">View Demo Site</a>
       <a href="https://github.com/Gull-Stack/treehouse-athletic-club" class="cta-link">GitHub Repo</a>
       <a href="https://github.com/Gull-Stack/treehouse-athletic-club/blob/main/STRATEGY.md" class="cta-link">Full Strategy</a>
     </div>
-    <div class="footer-note reveal reveal-d3">tacfitness.com &bull; GullStack &bull; April 2026</div>
+    <div class="footer-note reveal rd3">tacfitness.com &bull; GullStack &bull; April 2026</div>
   </div>
 </section>
 
 <script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>o.observe(el));
 </script>
 </body>
 </html>
