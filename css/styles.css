@@ -12,11 +12,22 @@
   --charcoal-lighter: #222222;
   --gray-dark: #333333;
   --gray: #666666;
-  --gray-light: #999999;
+  --gray-light: #b3b3b3;
   --gray-lighter: #cccccc;
   --white: #ffffff;
   --off-white: #f5f5f5;
-  
+
+  /* Brand Colors */
+  --forest-green: #2D5A27;
+  --forest-light: #4A7A44;
+  --orange: #FF6B35;
+  --wood: #8B6914;
+
+  /* Extended Grays */
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-600: #6b7280;
+
   /* Accent */
   --gold: #c9a962;
   --gold-light: #d4bc7d;
@@ -167,7 +178,7 @@ p {
   gap: 8px;
   padding: 18px 40px;
   font-family: var(--font-heading);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -312,7 +323,7 @@ p {
 
 .nav-link {
   font-family: var(--font-heading);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1594,7 +1605,7 @@ p {
 
 .form-group label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
