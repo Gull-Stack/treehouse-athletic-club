@@ -1,8 +1,10 @@
 # Treehouse Athletic Club - Demo Website
 
+> **DEMO / STAGING ONLY** — This site contains placeholder content (stock photos, sample class schedules, demo instructor names, fabricated testimonials, and a non-functional tour form). It is NOT production-ready. See KNOWN ISSUES below before deploying to a live domain.
+
 A Tier-S demo website for Treehouse Athletic Club, Utah's premier family fitness center.
 
-## 🌲 Overview
+## Overview
 
 This is a premium demo website showcasing a modern, conversion-focused design for a bigbox family gym. The design takes inspiration from top-tier fitness brands like Equinox, Life Time, and Orangetheory.
 
@@ -69,12 +71,30 @@ Simply upload all files to any static hosting provider.
 - XML sitemap included
 - robots.txt configured
 
-## 🔗 Links
+## Links
 
-- **Demo:** (Vercel deployment URL)
+- **Demo:** https://treehouse-athletic-club.vercel.app
+- **Presentation:** https://treehouse-athletic-club.vercel.app/presentation
+- **Strategy:** [STRATEGY.md](STRATEGY.md)
 - **Current Site:** https://www.treehousefitness.com/
 - **Falling Waters Spa:** https://fallingwatersspa.com/
 
+## Known Issues (Must Fix Before Production)
+
+| Issue | Severity | Notes |
+|-------|----------|-------|
+| Stock photos (Unsplash) | HIGH | Replace with real Treehouse facility photos |
+| Demo instructor names | MEDIUM | Replace with real staff names and bios |
+| Fake testimonials | MEDIUM | Replace with real member testimonials |
+| Tour form has no backend | CRITICAL | Form action="#" — needs real endpoint or Calendly embed |
+| Sandy location may not exist | HIGH | Only one physical location at 1101 E Draper Pkwy confirmed — verify if Sandy page should exist |
+| Sandy address "8855 S 700 E" | HIGH | Unverified — may be fabricated |
+| Pricing ($59/$129/$199) | MEDIUM | Unverified — confirm with ownership |
+| Class schedule | MEDIUM | Sample/demo data — replace with real schedule |
+| Missing pages | MEDIUM | Privacy Policy, Terms of Service, Accessibility — all href="#" |
+| No analytics | LOW | Add Google Analytics or Plausible before launch |
+| rock-wall.jpg is 12MB | LOW | Compress to <500KB for web performance |
+
 ---
 
-Built by GullStack | FTJ! 🚀
+Built by GullStack
