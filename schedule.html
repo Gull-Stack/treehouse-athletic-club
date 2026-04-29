@@ -14,6 +14,11 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌲</text></svg>">
 </head>
 <body>
+  <!-- Promotional Banner -->
+  <div style="background: linear-gradient(135deg, #116dff 0%, #3899ec 100%); color: white; text-align: center; padding: 12px 20px; font-size: 14px; font-weight: 500; letter-spacing: 0.5px;">
+    <strong>Spring Special:</strong> Join this month &mdash; first month free + complimentary Falling Waters spa session. <a href="tour.html" style="color: white; text-decoration: underline; font-weight: 700;">Book a Tour &rarr;</a>
+  </div>
+
   <!-- Header -->
   <header class="header scrolled">
     <div class="container">
@@ -389,6 +394,13 @@
       </div>
     </div>
   </footer>
+
+  <!-- Cookie Consent -->
+  <div id="cookieConsent" style="position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;color:#f5f5f0;padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:16px;font-size:13px;z-index:9999;box-shadow:0 -2px 12px rgba(0,0,0,.3);flex-wrap:wrap;">
+    <span>This site uses cookies to improve your experience and analyze traffic. By continuing, you agree to our <a href="/privacy" style="color:#3899ec;text-decoration:underline;">Privacy Policy</a>.</span>
+    <button onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookieAccepted','true')" style="background:#116dff;color:white;border:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookieAccepted'))document.getElementById('cookieConsent').style.display='none';</script>
 
   <script src="js/main.js"></script>
 </body>

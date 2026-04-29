@@ -392,6 +392,13 @@
     </div>
   </footer>
 
+  <!-- Cookie Consent -->
+  <div id="cookieConsent" style="position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;color:#f5f5f0;padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:16px;font-size:13px;z-index:9999;box-shadow:0 -2px 12px rgba(0,0,0,.3);flex-wrap:wrap;">
+    <span>This site uses cookies to improve your experience and analyze traffic. By continuing, you agree to our <a href="/privacy" style="color:#3899ec;text-decoration:underline;">Privacy Policy</a>.</span>
+    <button onclick="document.getElementById('cookieConsent').style.display='none';localStorage.setItem('cookieAccepted','true')" style="background:#116dff;color:white;border:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;">Accept</button>
+  </div>
+  <script>if(localStorage.getItem('cookieAccepted'))document.getElementById('cookieConsent').style.display='none';</script>
+
   <script src="js/main.js"></script>
 </body>
 </html>
