@@ -64,6 +64,24 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 .system-list .fn-icon{width:36px;height:36px;border-radius:8px;background:rgba(0,180,216,.1);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .system-list strong{color:var(--white)}
 
+/* USE CASE */
+.use-case{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:24px 28px;margin-top:16px;font-size:14px;line-height:1.7;color:rgba(245,245,240,.55);font-style:italic}
+.use-case strong{color:var(--teal);font-style:normal;font-weight:600}
+
+/* CHAT MOCKUP */
+.chat-mock{background:#111;border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;margin-top:32px;max-width:600px}
+.chat-header{background:#1a1a1a;padding:14px 20px;font-size:13px;font-weight:600;color:var(--teal);letter-spacing:1px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:8px}
+.chat-header .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+.chat-body{padding:20px}
+.chat-msg{margin-bottom:16px;max-width:85%}
+.chat-msg:last-child{margin-bottom:0}
+.chat-msg.user{margin-left:auto;text-align:right}
+.chat-msg .bubble{display:inline-block;padding:10px 16px;border-radius:12px;font-size:14px;line-height:1.5;text-align:left}
+.chat-msg.bot .bubble{background:rgba(0,180,216,.1);color:rgba(245,245,240,.85);border-bottom-left-radius:4px}
+.chat-msg.user .bubble{background:rgba(255,255,255,.08);color:rgba(245,245,240,.7);border-bottom-right-radius:4px}
+.chat-msg .label{font-size:11px;color:var(--gray);margin-bottom:4px;font-weight:500}
+.chat-result{margin-top:12px;padding:12px 16px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.15);border-radius:8px;font-size:13px;color:var(--green);line-height:1.5}
+
 /* WHY */
 .why{background:var(--black);padding:120px 0;text-align:center}
 .why-items{display:flex;flex-direction:column;gap:32px;margin-top:48px;text-align:left;max-width:600px;margin-left:auto;margin-right:auto}
@@ -171,31 +189,35 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
     <p class="lead reveal rd2">Right now, when someone wants to join Treehouse after hours, they get nothing. That changes.</p>
 
     <div class="outcome reveal">
-      <div class="before">Right now: Someone calls at 9 PM. No answer. They Google "gym near me" and join somewhere else.</div>
-      <h3>Every question gets answered. Instantly.</h3>
-      <p>The AI knows your pricing, your hours, your classes, your amenities. It answers questions on your website 24 hours a day. At 2 AM on a Sunday, someone asks "do you have a pool?" and gets an answer in 3 seconds.</p>
-      <div class="result">What you get: Zero missed inquiries. Every prospect gets a response.</div>
+      <div class="before">Right now: Someone calls at 9 PM. No answer. They join somewhere else by morning.</div>
+      <h3>Every question answered. Instantly. 24/7.</h3>
+      <p>A chatbot lives on the Treehouse website. It knows every class time, every membership price, every amenity, every FAQ. It doesn't put people on hold. It doesn't say "let me check." It answers.</p>
+      <div class="use-case"><strong>Example:</strong> 10:47 PM on a Tuesday. A woman types "Do you have childcare while I work out?" The bot responds: "Yes &#8212; Kids Club is open M-F 8AM-1PM and 4-8PM, included with all family memberships. Want to book a tour?" She books a tour for Thursday at 9 AM. The front desk gets an email with her name and what she asked about.</div>
+      <div class="result">What you get: Zero missed leads. The bot captures them while the staff sleeps.</div>
     </div>
 
     <div class="outcome reveal">
       <div class="before">Right now: "Call us to join." Gen Z doesn't call anyone.</div>
-      <h3>People join from their phone.</h3>
-      <p>A prospect finds you at midnight. They pick a membership, enter their info, and they're a member before sunrise. No phone call. No waiting for business hours. No friction.</p>
-      <div class="result">What you get: An entire generation of members you're currently losing.</div>
+      <h3>Sign up from the couch at midnight.</h3>
+      <p>The website has a full membership signup flow. Pick a plan, enter payment, agree to terms, done. No phone call. No appointment. No friction.</p>
+      <div class="use-case"><strong>Example:</strong> A 24-year-old finds Treehouse on Google at 11:30 PM. Browses the amenities, checks pricing, selects the Individual plan at $49/mo, enters a credit card, and is a member by 11:36 PM. First visit: the next morning.</div>
+      <div class="result">What you get: Members who would never have called, signing up on their own terms.</div>
     </div>
 
     <div class="outcome reveal">
-      <div class="before">Right now: 4 tours, 0 sales. No follow-up system.</div>
-      <h3>Tours get booked and followed up automatically.</h3>
-      <p>The AI books tours directly on your website. After the tour, it sends a follow-up sequence &#8212; a thank-you, a reminder of what they saw, a limited-time offer. No leads fall through the cracks.</p>
-      <div class="result">What you get: More tours booked. Every single one gets follow-up.</div>
+      <div class="before">Right now: 4 tours last month, 0 sales. No follow-up system.</div>
+      <h3>Tours booked online. Follow-up is automatic.</h3>
+      <p>The website lets people pick a day and time for a tour. After the tour, the AI sends a sequence: a thank-you email, a reminder of what they saw, and a limited-time offer 48 hours later. If they don't respond, a final nudge goes out at day 7.</p>
+      <div class="use-case"><strong>Example:</strong> Paul gives a tour on Wednesday. By Wednesday night, the prospect gets a thank-you email with photos of the pool and gym floor. Friday, they get "Still thinking about it? Your first month is on us if you join by Sunday." They join Saturday.</div>
+      <div class="result">What you get: Every tour followed up. No leads forgotten.</div>
     </div>
 
     <div class="outcome reveal">
-      <div class="before">Right now: Returning member pipeline has dried up.</div>
+      <div class="before">Right now: Returning-member pipeline has dried up.</div>
       <h3>Former members get a personal invitation back.</h3>
-      <p>The AI identifies people who left and sends them personalized outreach &#8212; at their original rate. "We miss you. Your rate is still here. Come back."</p>
-      <div class="result">What you get: Your best sales pipeline, reactivated.</div>
+      <p>The AI identifies people who cancelled in the last 12 months and sends them a personalized message offering their original rate back.</p>
+      <div class="use-case"><strong>Example:</strong> "Hi Sarah &#8212; it's been 4 months since you left Treehouse. Your original rate of $39/mo is still available. No signup fee. Just come back." Sarah rejoins without ever talking to anyone.</div>
+      <div class="result">What you get: The cheapest, highest-converting sales pipeline there is &#8212; people who already know you.</div>
     </div>
   </div>
 </section>
@@ -210,30 +232,49 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 
     <div class="outcome reveal">
       <div class="before">Right now: Wix website. Not on Google. People drive past every day without knowing you exist.</div>
-      <h3>A new website that shows up everywhere.</h3>
-      <p>Built to appear in Google searches, in ChatGPT answers, in every AI tool people use to find a gym. When someone in Draper types "best gym near me," Treehouse shows up first.</p>
-      <div class="result">What you get: Visibility. People find you before they find Lifetime.</div>
+      <h3>A custom website you control by talking to it.</h3>
+      <p>Not a template. A custom-built site designed to rank on Google, show up in ChatGPT and AI search results, and convert visitors into members. And here's the difference: when you want something changed, you don't call a developer and wait two weeks. You open a chat and tell the AI what you want.</p>
+      <div class="use-case"><strong>Example:</strong> Erica types "Add the summer kids camp to the homepage with pricing." The AI updates the site, adds schema markup so Google picks it up, and it's live in minutes. Not days. Minutes.</div>
+      <div class="result">What you get: A website that ranks, converts, and changes when you need it to.</div>
+    </div>
+
+    <div class="outcome reveal">
+      <div class="before">Here's what that looks like.</div>
+      <h3>The bot that builds your website in real time.</h3>
+      <div class="chat-mock">
+        <div class="chat-header"><span class="dot"></span> Treehouse AI &#8212; Website Manager</div>
+        <div class="chat-body">
+          <div class="chat-msg user"><div class="label">Erica</div><div class="bubble">We just added a smoothie bar in the lobby. Can you put it on the amenities page?</div></div>
+          <div class="chat-msg bot"><div class="label">AI</div><div class="bubble">Done. I've added a "Smoothie Bar" section to the amenities page with a description, placed it after the spa section. I also updated the homepage features list and added schema markup so it shows up in Google search results. Want me to add the menu or pricing?</div></div>
+          <div class="chat-msg user"><div class="label">Erica</div><div class="bubble">Yes, add the menu. Acai bowl $12, protein shake $8, green juice $7.</div></div>
+          <div class="chat-msg bot"><div class="label">AI</div><div class="bubble">Menu is live on the amenities page. I also created a social post draft: "Fuel up after your workout. The new Treehouse Smoothie Bar is open &#8212; acai bowls, protein shakes, fresh juice." Want me to post it to Instagram and Facebook?</div></div>
+          <div class="chat-result">&#9989; amenities page updated &bull; Google schema added &bull; social post drafted &bull; 4 minutes total</div>
+        </div>
+      </div>
     </div>
 
     <div class="outcome reveal">
       <div class="before">Right now: Same post on Facebook, Instagram, and TikTok. Doesn't resonate with any of them.</div>
-      <h3>The right message for the right audience.</h3>
-      <p>You write one post. The AI turns it into three versions &#8212; a community-focused one for Facebook (your 40+ crowd), a visual lifestyle post for Instagram (30-somethings), and a short punchy clip for TikTok (teens to 30s). Each one sounds like it was written for that audience, because it was.</p>
-      <div class="result">What you get: Three times the impact from the same amount of work.</div>
+      <h3>One post becomes three.</h3>
+      <p>Tracy writes "We're running a guest pass special this weekend." The AI turns it into a community invitation for Facebook (the 40+ members who share with friends), a lifestyle reel caption for Instagram (the 30-somethings), and a punchy 8-second hook for TikTok (teens to college). Each version sounds native to its platform.</p>
+      <div class="use-case"><strong>Example:</strong> Tracy posts once. The AI publishes three platform-specific versions. Facebook gets 340 reach, Instagram gets 89 saves, TikTok gets 2.1K views. Same effort, 3x the result.</div>
+      <div class="result">What you get: Every platform gets content that actually works there.</div>
     </div>
 
     <div class="outcome reveal">
-      <div class="before">Right now: No Meta ads running. When you boost, there's no strategy.</div>
-      <h3>Ads that find people who actually want a gym.</h3>
-      <p>Instead of boosting posts and hoping, the AI runs campaigns that target people in Draper and Sandy who are actively searching for fitness, gyms, and wellness. If someone visits your website but doesn't join, the ad follows them and brings them back.</p>
-      <div class="result">What you get: Real ad campaigns that bring real people through the door.</div>
+      <div class="before">Right now: No Meta ads running. Boosting posts and hoping.</div>
+      <h3>Ads that target people actively searching for a gym.</h3>
+      <p>The AI builds campaigns on Meta that target people in Draper and Sandy who searched for "gym," "fitness classes," or "personal training" in the last 30 days. When someone visits the Treehouse website but doesn't sign up, the ad follows them across Instagram and Facebook until they come back.</p>
+      <div class="use-case"><strong>Example:</strong> A woman in Sandy Googles "yoga classes near me." She sees a Treehouse ad on Instagram that evening. She clicks, browses, leaves. Two days later, she sees a retargeting ad with a 7-day free trial. She signs up.</div>
+      <div class="result">What you get: Targeted campaigns that bring back the people who already showed interest.</div>
     </div>
 
     <div class="outcome reveal">
-      <div class="before">Right now: People call asking about summer camps. You have nothing to tell them.</div>
-      <h3>Seasonal programs promoted automatically.</h3>
-      <p>Family summer pass. Kids' camp info. Holiday specials. The AI creates and launches seasonal campaigns when the demand hits, so the website answers the phone calls before they happen.</p>
-      <div class="result">What you get: Stop fielding the same questions. The website handles it.</div>
+      <div class="before">Right now: People call asking about summer camps. Nothing to tell them.</div>
+      <h3>Seasonal programs launch themselves.</h3>
+      <p>When May hits, the AI automatically publishes the summer kids camp page, updates pricing, creates social posts, and runs a targeted ad campaign to parents within 10 miles. When the phone rings, the website already has the answer.</p>
+      <div class="use-case"><strong>Example:</strong> A parent searches "kids summer camp Draper." The Treehouse page is already live with dates, pricing, and an online registration form. They sign up their kid at 11 PM without calling anyone.</div>
+      <div class="result">What you get: Seasonal revenue captured automatically, not scrambled for.</div>
     </div>
   </div>
 </section>
@@ -248,23 +289,26 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 
     <div class="outcome reveal">
       <div class="before">Right now: A member stops coming for 3 months. Nobody notices. Then they cancel.</div>
-      <h3>At-risk members get flagged before they leave.</h3>
-      <p>The AI watches check-in patterns. When someone's visits drop off &#8212; 30 days, 60 days, 90 days &#8212; it flags them. Your team knows exactly who to call and why, before they ever fill out a cancellation form.</p>
-      <div class="result">What you get: A chance to save the member while they still have the membership.</div>
+      <h3>At-risk members flagged before they cancel.</h3>
+      <p>The AI watches check-in data. When visits drop, it flags the member and tells your team exactly who to call, when they last came in, and what they used to do.</p>
+      <div class="use-case"><strong>Example:</strong> "Mark Thompson &#8212; Family plan, $79/mo. Used to come 4x/week. Hasn't checked in for 22 days. Used to attend Tuesday cycling and Thursday yoga. Suggest: personal outreach about the new Saturday cycling class." The front desk calls Mark before he ever thinks about cancelling.</div>
+      <div class="result">What you get: A 22-day warning instead of a cancellation form.</div>
     </div>
 
     <div class="outcome reveal">
       <div class="before">Right now: "Dues increase. No perceived value." That's what the cancellation forms say.</div>
-      <h3>Members are reminded what they're paying for.</h3>
-      <p>When check-ins drop, the AI sends personalized messages: "You haven't tried the new yoga class." "Your kids can use Kids Club while you work out." "The spa is included in your membership." It shifts the conversation from price to experience.</p>
+      <h3>Members reminded what they're paying for.</h3>
+      <p>When check-ins drop, the AI sends personalized messages based on what that member's plan includes but they're not using.</p>
+      <div class="use-case"><strong>Example:</strong> A family plan member only uses the gym floor. The AI sends: "Did you know Kids Club is included in your membership? Drop the kids off M-F 8AM-1PM while you work out. No extra charge." She brings her kids the following Monday. Check-ins go back up.</div>
       <div class="result">What you get: Members who feel the value instead of just seeing the bill.</div>
     </div>
 
     <div class="outcome reveal">
       <div class="before">Right now: No anniversary recognition. No personal touch. Members are just a number.</div>
-      <h3>Every milestone gets celebrated.</h3>
-      <p>First month check-in. Six-month mark. One-year anniversary. The AI sends a personal note at every milestone. "Congratulations on one year at Treehouse. Here's what you've accomplished." Members feel seen.</p>
-      <div class="result">What you get: Members who feel like they belong, not like they're just paying a bill.</div>
+      <h3>Every milestone gets a personal message.</h3>
+      <p>First month. Six months. One year. The AI sends a note at every milestone, personalized to what that member actually does at the club.</p>
+      <div class="use-case"><strong>Example:</strong> "Congratulations on one year at Treehouse, David. You've checked in 147 times. Your most-visited class: Thursday morning yoga. Here's a guest pass &#8212; bring a friend this week." David shares it. His friend joins.</div>
+      <div class="result">What you get: Members who feel like they belong. And who bring their friends.</div>
     </div>
   </div>
 </section>
@@ -279,23 +323,26 @@ section{min-height:100vh;display:flex;align-items:center;justify-content:center;
 
     <div class="outcome reveal">
       <div class="before">Right now: Meetings happen. Nothing gets documented. Nobody follows through.</div>
-      <h3>Every Friday, a report lands in your inbox.</h3>
-      <p>What got done this week. What's planned for next week. What's blocked and how to fix it. Key numbers &#8212; sales, tours, check-ins, website traffic. Nobody has to write it. It generates automatically.</p>
-      <div class="result">What you get: Accountability without the overhead. You know what's happening without a single meeting.</div>
+      <h3>A Friday report. Automatic. Every week.</h3>
+      <p>No one has to write it. The AI compiles it from real data: website visits, new leads, tours booked, signups, cancellations, check-in trends, ad spend, and social engagement.</p>
+      <div class="use-case"><strong>Example:</strong> Friday 8 AM, Erica's inbox: "This week: 312 website visits (+18%), 4 tours booked, 2 new members, 1 cancellation (reason: moving), 6 at-risk members flagged, Facebook reach 4.2K. Top-performing post: smoothie bar announcement. Action item: 3 at-risk members haven't been called yet."</div>
+      <div class="result">What you get: Every number, every week, without asking anyone.</div>
     </div>
 
     <div class="outcome reveal">
-      <div class="before">Right now: The software decision feels impossible. You've been on Compete for 13 years.</div>
-      <h3>A clear recommendation based on data.</h3>
-      <p>Member survey results. Feature comparison between Compete, Club Automation, and ABC Fitness. Migration risk assessment. You'll have a clear picture, not a gut feeling.</p>
-      <div class="result">What you get: Confidence in the decision. And Rebecca leads the migration when you're ready.</div>
+      <div class="before">Right now: The software decision feels impossible. 13 years on Compete.</div>
+      <h3>A data-driven recommendation. Not a gut feeling.</h3>
+      <p>The AI surveys members about their experience, compares Compete vs. Club Automation vs. ABC Fitness feature-by-feature, and assesses migration risk.</p>
+      <div class="use-case"><strong>Example:</strong> "Survey results: 67% of members want an app to book classes. Compete doesn't offer one. Club Automation does. Migration risk: medium &#8212; 2-week parallel run recommended. Rebecca can lead. Estimated timeline: 6 weeks." You decide with data, not anxiety.</div>
+      <div class="result">What you get: Confidence in the decision, and a migration plan ready to go.</div>
     </div>
 
     <div class="outcome reveal">
-      <div class="before">Right now: Falling Waters Spa sits next door but there's no cross-promotion.</div>
-      <h3>Two businesses that feed each other.</h3>
-      <p>Gym members get targeted spa offers. Spa clients get guest passes to the gym. The AI automatically cross-promotes between properties you already own.</p>
-      <div class="result">What you get: Revenue from an asset you already have.</div>
+      <div class="before">Right now: Falling Waters Spa sits next door. No cross-promotion.</div>
+      <h3>Two businesses feeding each other automatically.</h3>
+      <p>The AI cross-promotes between the gym and the spa based on what each customer uses.</p>
+      <div class="use-case"><strong>Example:</strong> A gym member who attends yoga 3x/week gets: "Love your yoga routine? Falling Waters has a post-workout deep tissue massage &#8212; $20 off for Treehouse members this month." A spa client who's never been to the gym gets a 7-day guest pass in their booking confirmation email.</div>
+      <div class="result">What you get: Revenue from two properties working together instead of side by side.</div>
     </div>
   </div>
 </section>
