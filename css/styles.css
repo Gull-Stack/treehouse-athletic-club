@@ -1771,6 +1771,68 @@ p {
 }
 
 /* ============================================
+   JOIN PROCESS SECTION
+   ============================================ */
+
+.join-process {
+  padding: var(--section-padding) 0;
+  background: var(--black);
+}
+
+.join-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.join-step {
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--charcoal);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all var(--transition-medium);
+}
+
+.join-step:hover {
+  border-color: rgba(255,255,255,0.1);
+  transform: translateY(-8px);
+}
+
+.join-step-number {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 200;
+  color: var(--gold);
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.join-step h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.join-step p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .join-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .join-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
    INNER PAGE STYLES
    ============================================ */
 
