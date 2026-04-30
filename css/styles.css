@@ -136,7 +136,7 @@ p {
   display: block;
   color: var(--gold);
   font-family: var(--font-heading);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -365,8 +365,8 @@ p {
   border: none;
   cursor: pointer;
   padding: 8px;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   justify-content: center;
 }
 
@@ -1001,6 +1001,8 @@ p {
   border: none;
   cursor: pointer;
   transition: all var(--transition-fast);
+  padding: 20px 0;
+  background-clip: content-box;
 }
 
 .testimonial-dot.active,
@@ -2134,7 +2136,7 @@ p {
 }
 
 .schedule-class span {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--gray-light);
 }
 
@@ -2395,4 +2397,16 @@ p {
   .location-hours {
     padding: 24px;
   }
+
+  .filter-btn {
+    min-height: 44px;
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-title { font-size: 2rem; }
+  .section-title { font-size: 1.5rem; }
+  .pricing-price { font-size: 2.5rem; }
+  .btn { padding: 16px 28px; font-size: 0.8125rem; }
 }
